@@ -31,6 +31,18 @@ namespace FX.Mobile.DeveloperTools
 			base.OnLoad(e);
 		}
 
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				const int CS_DROPSHADOW = 0x00020000;
+
+				CreateParams cp = base.CreateParams;
+				cp.ClassStyle |= CS_DROPSHADOW;
+				return cp;
+			}
+		}
+
 		void AppFormBase_MouseDown(object sender, MouseEventArgs e)
 		{
 			if (e.Button != MouseButtons.Left)

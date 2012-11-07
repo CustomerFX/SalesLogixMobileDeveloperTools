@@ -123,6 +123,9 @@ namespace FX.Mobile.DeveloperTools.Content
 								Directory.CreateDirectory(filePath);
 						}
 
+						labelStatus.Text = "Creating file " + fileName;
+						Application.DoEvents();
+
 						using (var writer = new StreamWriter(Path.Combine(filePath, fileName)))
 						{
 							writer.Write(fileContents);

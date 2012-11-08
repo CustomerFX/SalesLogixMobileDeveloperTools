@@ -55,6 +55,9 @@ namespace FX.Mobile.DeveloperTools.UI
 			prodCtrl.ProductOptionSelected += prodCtrl_ProductOptionSelected;
 			panelProductList.Controls.Add(prodCtrl);
 			prodCtrl.Dock = DockStyle.Top;
+
+			if (name == "argos-saleslogix")
+				panelProductList.ScrollControlIntoView(prodCtrl);
 		}
 
 		private void prodCtrl_ProductOptionSelected(object sender, EventArgs e)

@@ -45,10 +45,8 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panelWarning = new System.Windows.Forms.Panel();
 			this.label4 = new System.Windows.Forms.Label();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelWarning.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -202,22 +200,10 @@
 			this.label4.TabIndex = 12;
 			this.label4.Text = "Warning: argos-sdk and products folders are not found!";
 			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(3, 19);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBox2.TabIndex = 13;
-			this.pictureBox2.TabStop = false;
-			this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-			// 
 			// CreateProductControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
-			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.panelWarning);
 			this.Controls.Add(this.buttonBrowse);
 			this.Controls.Add(this.textProductPath);
@@ -231,11 +217,21 @@
 			this.Controls.Add(this.option12);
 			this.Controls.Add(this.label1);
 			this.Name = "CreateProductControl";
-			this.Size = new System.Drawing.Size(622, 334);
+			this.Controls.SetChildIndex(this.label1, 0);
+			this.Controls.SetChildIndex(this.option12, 0);
+			this.Controls.SetChildIndex(this.option20, 0);
+			this.Controls.SetChildIndex(this.button1, 0);
+			this.Controls.SetChildIndex(this.progressBar1, 0);
+			this.Controls.SetChildIndex(this.label2, 0);
+			this.Controls.SetChildIndex(this.textProductName, 0);
+			this.Controls.SetChildIndex(this.labelStatus, 0);
+			this.Controls.SetChildIndex(this.label3, 0);
+			this.Controls.SetChildIndex(this.textProductPath, 0);
+			this.Controls.SetChildIndex(this.buttonBrowse, 0);
+			this.Controls.SetChildIndex(this.panelWarning, 0);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panelWarning.ResumeLayout(false);
 			this.panelWarning.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -258,6 +254,5 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Panel panelWarning;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.PictureBox pictureBox2;
 	}
 }

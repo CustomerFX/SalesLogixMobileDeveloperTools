@@ -1,4 +1,4 @@
-﻿namespace FX.Mobile.DeveloperTools
+﻿namespace FX.Mobile.DeveloperTools.UI
 {
 	partial class FormTest
 	{

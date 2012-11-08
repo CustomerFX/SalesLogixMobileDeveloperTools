@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FX.Mobile.DeveloperTools
+namespace FX.Mobile.DeveloperTools.UI
 {
 	public partial class FormTest : Form
 	{

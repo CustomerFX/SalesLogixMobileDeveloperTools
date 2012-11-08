@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using Transitions;
 using System.Reflection;
 using System.Threading;
 
 namespace FX.Mobile.DeveloperTools.Content
 {
-	public partial class CreateProductControl : UserControl
+	public partial class CreateProductControl : Controls.ActionPanel
 	{
 		public CreateProductControl()
 		{
@@ -34,20 +33,6 @@ namespace FX.Mobile.DeveloperTools.Content
 					panelWarning.Visible = !(Directory.Exists(Path.Combine(textProductPath.Text, @"argos-sdk\")) && Directory.Exists(Path.Combine(textProductPath.Text, @"products\")));
 				}
 			}
-		}
-
-		private void pictureBox2_Click(object sender, EventArgs e)
-		{
-			var t = new Transition(new TransitionType_EaseInEaseOut(700));
-			t.TransitionCompletedEvent += t_TransitionCompletedEvent;
-			t.add(this, "Left", this.FindForm().Width);
-			t.add(this, "BackColor", Color.Silver);
-			t.run();
-		}
-
-		void t_TransitionCompletedEvent(object sender, Transition.Args e)
-		{
-			this.Visible = false;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -72,6 +57,9 @@ namespace FX.Mobile.DeveloperTools.Content
 			var resourceFiles = _assembly.GetManifestResourceNames();
 			progressBar1.Maximum = resourceFiles.Length + 1;
 			progressBar1.Value = 1;
+
+			labelStatus.Text = "Initializing product...";
+			Application.DoEvents();
 
 			foreach (var resourceFile in resourceFiles)
 			{
@@ -145,7 +133,7 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			Application.DoEvents();
 			MessageBox.Show("Product '" + textProductName.Text + "' created and is ready for use.", "Product Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			pictureBox2_Click(pictureBox2, EventArgs.Empty);
+			this.Back();
 		}
 	}
 }

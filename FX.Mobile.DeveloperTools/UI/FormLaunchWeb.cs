@@ -59,6 +59,8 @@ namespace FX.Mobile.DeveloperTools.UI
 
 		private void prodCtrl_ProductOptionSelected(object sender, EventArgs e)
 		{
+			Program.Port = textPort.Text;
+
 			var prodCtrl = (ProductControl)sender;
 			string url = string.Format("http://localhost:{0}/products/argos-saleslogix/index{1}{2}{3}.html", Program.Port, (prodCtrl.SelectedConfiguration != string.Empty ? "-" : ""), prodCtrl.SelectedConfiguration, (prodCtrl.ArgosProduct != "argos-saleslogix" ? prodCtrl.ArgosProduct.ToLower().Replace("argos", "") : ""));
 
@@ -89,7 +91,21 @@ namespace FX.Mobile.DeveloperTools.UI
 
 		private bool IsIisExpressInstalled()
 		{
-			return (Directory.Exists(@"C:\Program Files (x86)\IIS ExpressX"));
+			return (Directory.Exists(@"C:\Program Files (x86)\IIS Express"));
+		}
+
+		private void textPort_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+			{
+				e.Handled = true;
+			}
+		}
+
+		private void textPort_Leave(object sender, EventArgs e)
+		{
+			if (textPort.Text.Trim() == "")
+				textPort.Text = "12684";
 		}
 	}
 }

@@ -35,10 +35,21 @@ namespace FX.Mobile.DeveloperTools.Content
 			}
 		}
 
+		private bool EnvironmentIsVersion12()
+		{
+			return (Directory.Exists(Path.Combine(textProductPath.Text, @"argos-sdk\libraries\ext")));
+		}
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (textProductName.Text == "") return;
 			if (textProductPath.Text == "") return;
+
+			if (option12.Checked && !EnvironmentIsVersion12())
+			{
+				MessageBox.Show("You've selected to create a version 1.2 product but the target environment is not a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
 			if (Directory.Exists(Path.Combine(textProductPath.Text, @"products\argos-" + textProductName.Text.ToLower() + @"\")))
 			{
@@ -51,7 +62,7 @@ namespace FX.Mobile.DeveloperTools.Content
 			button1.Enabled = false;
 			var _assembly = Assembly.GetExecutingAssembly();
 
-			string version = "Mobile1_2";
+			string version = (option12.Checked ? "Mobile1_2" : "Mobile2_0");
 			string baseNamespace = "FX.Mobile.DeveloperTools.Templates" + "." + version + ".";
 
 			var resourceFiles = _assembly.GetManifestResourceNames();

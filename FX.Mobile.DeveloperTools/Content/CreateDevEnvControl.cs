@@ -38,7 +38,7 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			labelStatus.Visible = true;
 			progressBar1.Visible = true;
-			progressBar1.Maximum = (checkIncludeSample.Checked ? 6 : 4);
+			progressBar1.Maximum = (checkIncludeSample.Checked ? 6 : 5);
 			progressBar1.Value = 0;
 			button1.Enabled = false;
 
@@ -158,7 +158,7 @@ namespace FX.Mobile.DeveloperTools.Content
 					}
 				}
 
-				var dirSample = new DirectoryInfo(Path.Combine(Path.Combine(textProductPath.Text, "products"), "argos-sample-" + version));
+				var dirSample = new DirectoryInfo(Path.Combine(Path.Combine(textProductPath.Text, "products"), "argos-sample-" + (version == "2.0" ? "master" : version)));
 				dirSample.MoveTo(Path.Combine(Path.Combine(textProductPath.Text, "products"), "argos-sample"));
 				File.Delete(Path.Combine(textProductPath.Text, "argos-sample-" + version + ".zip"));
 

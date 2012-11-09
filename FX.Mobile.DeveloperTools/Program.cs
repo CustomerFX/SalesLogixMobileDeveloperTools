@@ -15,11 +15,11 @@ namespace FX.Mobile.DeveloperTools
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
+			RegisterApp();
+			InstallLauncher();
+
 			if (args.Length == 0)
 			{
-				RegisterApp();
-				InstallLauncher();
-
 				Application.Run(new UI.FormMain());
 			}
 			else

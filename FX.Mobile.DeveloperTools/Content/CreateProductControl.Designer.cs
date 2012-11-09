@@ -62,9 +62,10 @@
 			// 
 			this.option12.AutoSize = true;
 			this.option12.Checked = true;
+			this.option12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option12.Location = new System.Drawing.Point(211, 19);
 			this.option12.Name = "option12";
-			this.option12.Size = new System.Drawing.Size(40, 17);
+			this.option12.Size = new System.Drawing.Size(39, 17);
 			this.option12.TabIndex = 1;
 			this.option12.TabStop = true;
 			this.option12.Text = "1.2";
@@ -74,9 +75,10 @@
 			// 
 			this.option20.AutoSize = true;
 			this.option20.Enabled = false;
+			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option20.Location = new System.Drawing.Point(266, 19);
 			this.option20.Name = "option20";
-			this.option20.Size = new System.Drawing.Size(40, 17);
+			this.option20.Size = new System.Drawing.Size(39, 17);
 			this.option20.TabIndex = 2;
 			this.option20.Text = "2.0";
 			this.option20.UseVisualStyleBackColor = true;
@@ -118,6 +120,7 @@
 			// 
 			this.textProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.textProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.textProductName.Location = new System.Drawing.Point(211, 62);
 			this.textProductName.Name = "textProductName";
 			this.textProductName.Size = new System.Drawing.Size(330, 20);
@@ -139,6 +142,7 @@
 			this.textProductPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textProductPath.BackColor = System.Drawing.SystemColors.Window;
+			this.textProductPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.textProductPath.Location = new System.Drawing.Point(211, 98);
 			this.textProductPath.Name = "textProductPath";
 			this.textProductPath.ReadOnly = true;

@@ -138,6 +138,7 @@
 			// 
 			// textPort
 			// 
+			this.textPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.textPort.Location = new System.Drawing.Point(146, 128);
 			this.textPort.Name = "textPort";
 			this.textPort.Size = new System.Drawing.Size(77, 29);

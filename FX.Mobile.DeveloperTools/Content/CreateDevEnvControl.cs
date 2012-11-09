@@ -190,10 +190,10 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			using (var link = new ShellLink())
 			{
-				link.Target = Application.ExecutablePath;
+				link.Target = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FX.Mobile.DeveloperTools.Launcher.exe");
 				link.Description = "Start Mobile Website";
 				link.DisplayMode = ShellLink.LinkDisplayMode.edmNormal;
-				link.Arguments = "/path:" + textProductPath.Text + " /port:3678";
+				link.Arguments = "\"/path:" + textProductPath.Text + "\" /port:3678";
 				link.Save(Path.Combine(textProductPath.Text, link.Description + ".lnk"));
 			}
 

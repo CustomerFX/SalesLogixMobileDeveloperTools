@@ -70,9 +70,9 @@ namespace FX.Mobile.DeveloperTools.UI
 
 			using (var iis = new IISExpressAutomation.IISExpress(new IISExpressAutomation.Parameters
 			{
-				Path = Program.Path,
+				Path = "\"" + Program.Path + "\"",
 				Port = int.Parse(Program.Port)
-			}))
+			}, string.Format(@"C:\Program Files{0}\IIS Express\iisexpress.exe", Is64bit() ? " (x86)" : "")))
 			{
 				try
 				{

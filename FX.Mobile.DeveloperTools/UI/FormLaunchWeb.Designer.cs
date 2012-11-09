@@ -164,10 +164,12 @@
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.panelProductList);
 			this.Controls.Add(this.label1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormLaunchWeb";
 			this.ShowIcon = true;
 			this.ShowMinimize = true;
 			this.ShowTitle = true;
+			this.Text = "SalesLogix Mobile Developer Tools Launcher";
 			this.Load += new System.EventHandler(this.FormLaunchWeb_Load);
 			this.Controls.SetChildIndex(this.label1, 0);
 			this.Controls.SetChildIndex(this.panelProductList, 0);

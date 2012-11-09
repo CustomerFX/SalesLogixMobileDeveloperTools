@@ -1,0 +1,9 @@
+{
+    "name": "[MODULE-LC:Custom]",
+    "displayName": "[MODULE:Custom] Module",
+    "description": "[MODULE:Custom] product for Sage SalesLogix Mobile client.",
+    "majorVersion": 1,
+    "minorVersion": 0,
+    "buildNumber": 0,
+    "targetProduct": "saleslogix"
+}

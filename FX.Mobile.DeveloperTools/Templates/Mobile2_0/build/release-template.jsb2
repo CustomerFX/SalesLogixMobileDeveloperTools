@@ -1,0 +1,11 @@
+{
+	"projectName": "SalesLogix Mobile [MODULE:Custom] Module",
+	"licenseText": "",
+	"deployDir": "deploy/",
+	"pkgs": [],
+	"resources": [{
+		"src": "../configuration",
+		"dest": "configuration/[MODULE-LC:Custom]",
+		"filters": ".*\\.js"
+	}]
+}

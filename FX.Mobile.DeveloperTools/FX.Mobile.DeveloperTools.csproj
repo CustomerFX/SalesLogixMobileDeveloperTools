@@ -28,7 +28,7 @@
     <PublisherName>Customer FX Corporation</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -144,6 +144,11 @@
     </Compile>
     <Compile Include="Utility\FileIcon.cs" />
     <Compile Include="Utility\ShellLink.cs" />
+    <EmbeddedResource Include="Templates\Mobile2_0\configuration\development.js" />
+    <EmbeddedResource Include="Templates\Mobile2_0\configuration\production.js" />
+    <EmbeddedResource Include="Templates\Mobile2_0\index-dev-custom.html" />
+    <EmbeddedResource Include="Templates\Mobile2_0\module-fragment.html" />
+    <EmbeddedResource Include="Templates\Mobile2_0\src\ApplicationModule.js" />
     <EmbeddedResource Include="Content\CreateDevEnvControl.resx">
       <DependentUpon>CreateDevEnvControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +199,11 @@
     <EmbeddedResource Include="Templates\Mobile1_2\build-custom.cmd" />
     <EmbeddedResource Include="Templates\Mobile1_2\build\release.cmd" />
     <EmbeddedResource Include="Templates\Mobile1_2\build\release.jsb2" />
+    <EmbeddedResource Include="Templates\Mobile2_0\build-custom.cmd" />
+    <EmbeddedResource Include="Templates\Mobile2_0\build\release-template.jsb2" />
+    <EmbeddedResource Include="Templates\Mobile2_0\build\release.cmd" />
+    <EmbeddedResource Include="Templates\Mobile2_0\build\release.jsb2" />
+    <EmbeddedResource Include="Templates\Mobile2_0\module-info.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates\Mobile1_2\configuration\development.js" />

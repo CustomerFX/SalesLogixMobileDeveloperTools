@@ -1,0 +1,25 @@
+{
+  "projectName": "SalesLogix Mobile [MODULE:Custom] Module",
+  "licenseText": "",
+  "deployDir": "deploy/",
+  "pkgs": [
+    {
+      "name": "SalesLogix Mobile [MODULE:Custom] Module",
+      "file": "content/javascript/argos-[MODULE-LC:Custom].js",
+      "isDebug": true,
+      "fileIncludes": [
+        {
+          "text": "ApplicationModule.js",
+          "path": "../src"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "src": "../configuration",
+      "dest": "configuration/[MODULE-LC:Custom]",
+      "filters": ".*\\.js"
+    }
+  ]
+}

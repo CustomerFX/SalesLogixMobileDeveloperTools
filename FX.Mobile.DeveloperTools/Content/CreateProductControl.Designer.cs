@@ -74,7 +74,6 @@
 			// option20
 			// 
 			this.option20.AutoSize = true;
-			this.option20.Enabled = false;
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option20.Location = new System.Drawing.Point(266, 19);
 			this.option20.Name = "option20";

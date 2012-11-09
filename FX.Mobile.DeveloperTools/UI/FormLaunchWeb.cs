@@ -9,6 +9,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using FX.Mobile.DeveloperTools.Controls;
+using Microsoft.Win32;
 
 namespace FX.Mobile.DeveloperTools.UI
 {
@@ -94,7 +95,15 @@ namespace FX.Mobile.DeveloperTools.UI
 
 		private bool IsIisExpressInstalled()
 		{
-			return (Directory.Exists(@"C:\Program Files (x86)\IIS Express"));
+			return (Directory.Exists(string.Format(@"C:\Program Files{0}\IIS Express", Is64bit() ? " (x86)" : "")));
+		}
+
+		private static bool Is64bit()
+		{
+			using (var key = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\"))
+			{
+				return key.GetValue("ProgramFilesDir (x86)") != null;
+			}
 		}
 
 		private void textPort_KeyPress(object sender, KeyPressEventArgs e)

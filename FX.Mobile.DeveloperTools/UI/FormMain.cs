@@ -20,23 +20,12 @@ namespace FX.Mobile.DeveloperTools.UI
 			WireControlMove(createProductControl1);
 		}
 
-		private void imageButton_MouseEnterLeave(object sender, EventArgs e)
-		{
-			//swap images
-			PictureBox pMain = (PictureBox)sender;
-			PictureBox pBack = (PictureBox)this.Controls[pMain.Name + "Selected"];
-
-			Image img = pMain.Image;
-			pMain.Image = pBack.Image;
-			pBack.Image = img;
-		}
-
-		private void imageButtonCreateProduct_Click(object sender, EventArgs e)
+		private void actionCreateProduct_ActionClicked(object sender, EventArgs e)
 		{
 			createProductControl1.SlideOut();
 		}
 
-		private void imageButtonCreateNewDevEnv_Click(object sender, EventArgs e)
+		private void actionCreateDevEnv_ActionClicked(object sender, EventArgs e)
 		{
 			createDevEnvControl1.SlideOut();
 		}

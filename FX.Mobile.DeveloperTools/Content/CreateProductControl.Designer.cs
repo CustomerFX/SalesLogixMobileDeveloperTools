@@ -45,6 +45,7 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panelWarning = new System.Windows.Forms.Panel();
 			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelWarning.SuspendLayout();
 			this.SuspendLayout();
@@ -52,7 +53,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(56, 21);
+			this.label1.Location = new System.Drawing.Point(56, 48);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(74, 13);
 			this.label1.TabIndex = 0;
@@ -63,7 +64,7 @@
 			this.option12.AutoSize = true;
 			this.option12.Checked = true;
 			this.option12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.option12.Location = new System.Drawing.Point(211, 19);
+			this.option12.Location = new System.Drawing.Point(211, 46);
 			this.option12.Name = "option12";
 			this.option12.Size = new System.Drawing.Size(39, 17);
 			this.option12.TabIndex = 1;
@@ -75,7 +76,7 @@
 			// 
 			this.option20.AutoSize = true;
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.option20.Location = new System.Drawing.Point(266, 19);
+			this.option20.Location = new System.Drawing.Point(266, 46);
 			this.option20.Name = "option20";
 			this.option20.Size = new System.Drawing.Size(39, 17);
 			this.option20.TabIndex = 2;
@@ -88,7 +89,7 @@
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Location = new System.Drawing.Point(211, 179);
+			this.button1.Location = new System.Drawing.Point(211, 206);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(154, 36);
 			this.button1.TabIndex = 3;
@@ -100,7 +101,7 @@
 			// 
 			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.progressBar1.Location = new System.Drawing.Point(59, 271);
+			this.progressBar1.Location = new System.Drawing.Point(59, 298);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.Size = new System.Drawing.Size(482, 29);
 			this.progressBar1.TabIndex = 4;
@@ -109,7 +110,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(56, 65);
+			this.label2.Location = new System.Drawing.Point(56, 92);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(73, 13);
 			this.label2.TabIndex = 5;
@@ -120,7 +121,7 @@
 			this.textProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textProductName.Location = new System.Drawing.Point(211, 62);
+			this.textProductName.Location = new System.Drawing.Point(211, 89);
 			this.textProductName.Name = "textProductName";
 			this.textProductName.Size = new System.Drawing.Size(330, 20);
 			this.textProductName.TabIndex = 6;
@@ -129,7 +130,7 @@
 			// labelStatus
 			// 
 			this.labelStatus.AutoSize = true;
-			this.labelStatus.Location = new System.Drawing.Point(56, 245);
+			this.labelStatus.Location = new System.Drawing.Point(56, 272);
 			this.labelStatus.Name = "labelStatus";
 			this.labelStatus.Size = new System.Drawing.Size(185, 13);
 			this.labelStatus.TabIndex = 7;
@@ -142,7 +143,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textProductPath.BackColor = System.Drawing.SystemColors.Window;
 			this.textProductPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textProductPath.Location = new System.Drawing.Point(211, 98);
+			this.textProductPath.Location = new System.Drawing.Point(211, 125);
 			this.textProductPath.Name = "textProductPath";
 			this.textProductPath.ReadOnly = true;
 			this.textProductPath.Size = new System.Drawing.Size(330, 20);
@@ -151,7 +152,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(56, 101);
+			this.label3.Location = new System.Drawing.Point(56, 128);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(59, 13);
 			this.label3.TabIndex = 8;
@@ -164,7 +165,7 @@
 			this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonBrowse.ForeColor = System.Drawing.Color.White;
 			this.buttonBrowse.Image = ((System.Drawing.Image)(resources.GetObject("buttonBrowse.Image")));
-			this.buttonBrowse.Location = new System.Drawing.Point(547, 98);
+			this.buttonBrowse.Location = new System.Drawing.Point(547, 123);
 			this.buttonBrowse.Name = "buttonBrowse";
 			this.buttonBrowse.Size = new System.Drawing.Size(32, 32);
 			this.buttonBrowse.TabIndex = 10;
@@ -186,7 +187,7 @@
 			// 
 			this.panelWarning.Controls.Add(this.label4);
 			this.panelWarning.Controls.Add(this.pictureBox1);
-			this.panelWarning.Location = new System.Drawing.Point(211, 129);
+			this.panelWarning.Location = new System.Drawing.Point(211, 156);
 			this.panelWarning.Name = "panelWarning";
 			this.panelWarning.Size = new System.Drawing.Size(348, 36);
 			this.panelWarning.TabIndex = 12;
@@ -203,10 +204,22 @@
 			this.label4.TabIndex = 12;
 			this.label4.Text = "Warning: argos-sdk and products folders are not found!";
 			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.SteelBlue;
+			this.label5.Location = new System.Drawing.Point(54, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(400, 25);
+			this.label5.TabIndex = 15;
+			this.label5.Text = "Create new mobile product for customization";
+			// 
 			// CreateProductControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.panelWarning);
 			this.Controls.Add(this.buttonBrowse);
 			this.Controls.Add(this.textProductPath);
@@ -232,6 +245,7 @@
 			this.Controls.SetChildIndex(this.textProductPath, 0);
 			this.Controls.SetChildIndex(this.buttonBrowse, 0);
 			this.Controls.SetChildIndex(this.panelWarning, 0);
+			this.Controls.SetChildIndex(this.label5, 0);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panelWarning.ResumeLayout(false);
 			this.panelWarning.PerformLayout();
@@ -257,5 +271,6 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Panel panelWarning;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
 	}
 }

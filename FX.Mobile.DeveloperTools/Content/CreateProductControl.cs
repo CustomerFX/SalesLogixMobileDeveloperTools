@@ -37,7 +37,12 @@ namespace FX.Mobile.DeveloperTools.Content
 
 		private bool EnvironmentIsVersion12()
 		{
-			return (Directory.Exists(Path.Combine(textProductPath.Text, @"argos-sdk\libraries\ext")));
+			return Directory.Exists(Path.Combine(textProductPath.Text, @"argos-sdk\libraries\ext"));
+		}
+
+		private bool EnvironmentHasSDK()
+		{
+			return Directory.Exists(Path.Combine(textProductPath.Text, "argos-sdk"));
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -45,12 +50,12 @@ namespace FX.Mobile.DeveloperTools.Content
 			if (textProductName.Text == "") return;
 			if (textProductPath.Text == "") return;
 
-			if (option12.Checked && !EnvironmentIsVersion12())
+			if (option12.Checked && !EnvironmentIsVersion12() && EnvironmentHasSDK())
 			{
 				MessageBox.Show("You've selected to create a version 1.2 product but the target environment is not a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (option20.Checked && EnvironmentIsVersion12())
+			if (option20.Checked && EnvironmentIsVersion12() && EnvironmentHasSDK())
 			{
 				MessageBox.Show("You've selected to create a version 2.0 product but the target environment is a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;

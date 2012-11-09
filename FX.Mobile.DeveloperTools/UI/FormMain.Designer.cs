@@ -33,17 +33,11 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.iconApp = new System.Windows.Forms.PictureBox();
-			this.imageButtonCreateProduct = new System.Windows.Forms.PictureBox();
-			this.imageButtonCreateProductSelected = new System.Windows.Forms.PictureBox();
-			this.imageButtonCreateNewDevEnv = new System.Windows.Forms.PictureBox();
-			this.imageButtonCreateNewDevEnvSelected = new System.Windows.Forms.PictureBox();
 			this.createProductControl1 = new FX.Mobile.DeveloperTools.Content.CreateProductControl();
 			this.createDevEnvControl1 = new FX.Mobile.DeveloperTools.Content.CreateDevEnvControl();
+			this.actionCreateProduct = new FX.Mobile.DeveloperTools.Controls.ActionButton();
+			this.actionCreateDevEnv = new FX.Mobile.DeveloperTools.Controls.ActionButton();
 			((System.ComponentModel.ISupportInitialize)(this.iconApp)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateProduct)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateProductSelected)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateNewDevEnv)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateNewDevEnvSelected)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -67,56 +61,6 @@
 			this.iconApp.TabIndex = 4;
 			this.iconApp.TabStop = false;
 			// 
-			// imageButtonCreateProduct
-			// 
-			this.imageButtonCreateProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.imageButtonCreateProduct.Image = ((System.Drawing.Image)(resources.GetObject("imageButtonCreateProduct.Image")));
-			this.imageButtonCreateProduct.Location = new System.Drawing.Point(15, 94);
-			this.imageButtonCreateProduct.Name = "imageButtonCreateProduct";
-			this.imageButtonCreateProduct.Size = new System.Drawing.Size(274, 85);
-			this.imageButtonCreateProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.imageButtonCreateProduct.TabIndex = 7;
-			this.imageButtonCreateProduct.TabStop = false;
-			this.imageButtonCreateProduct.Click += new System.EventHandler(this.imageButtonCreateProduct_Click);
-			this.imageButtonCreateProduct.MouseEnter += new System.EventHandler(this.imageButton_MouseEnterLeave);
-			this.imageButtonCreateProduct.MouseLeave += new System.EventHandler(this.imageButton_MouseEnterLeave);
-			// 
-			// imageButtonCreateProductSelected
-			// 
-			this.imageButtonCreateProductSelected.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.imageButtonCreateProductSelected.Image = ((System.Drawing.Image)(resources.GetObject("imageButtonCreateProductSelected.Image")));
-			this.imageButtonCreateProductSelected.Location = new System.Drawing.Point(15, 94);
-			this.imageButtonCreateProductSelected.Name = "imageButtonCreateProductSelected";
-			this.imageButtonCreateProductSelected.Size = new System.Drawing.Size(274, 85);
-			this.imageButtonCreateProductSelected.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.imageButtonCreateProductSelected.TabIndex = 8;
-			this.imageButtonCreateProductSelected.TabStop = false;
-			// 
-			// imageButtonCreateNewDevEnv
-			// 
-			this.imageButtonCreateNewDevEnv.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.imageButtonCreateNewDevEnv.Image = ((System.Drawing.Image)(resources.GetObject("imageButtonCreateNewDevEnv.Image")));
-			this.imageButtonCreateNewDevEnv.Location = new System.Drawing.Point(15, 186);
-			this.imageButtonCreateNewDevEnv.Name = "imageButtonCreateNewDevEnv";
-			this.imageButtonCreateNewDevEnv.Size = new System.Drawing.Size(274, 85);
-			this.imageButtonCreateNewDevEnv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.imageButtonCreateNewDevEnv.TabIndex = 10;
-			this.imageButtonCreateNewDevEnv.TabStop = false;
-			this.imageButtonCreateNewDevEnv.Click += new System.EventHandler(this.imageButtonCreateNewDevEnv_Click);
-			this.imageButtonCreateNewDevEnv.MouseEnter += new System.EventHandler(this.imageButton_MouseEnterLeave);
-			this.imageButtonCreateNewDevEnv.MouseLeave += new System.EventHandler(this.imageButton_MouseEnterLeave);
-			// 
-			// imageButtonCreateNewDevEnvSelected
-			// 
-			this.imageButtonCreateNewDevEnvSelected.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.imageButtonCreateNewDevEnvSelected.Image = ((System.Drawing.Image)(resources.GetObject("imageButtonCreateNewDevEnvSelected.Image")));
-			this.imageButtonCreateNewDevEnvSelected.Location = new System.Drawing.Point(15, 186);
-			this.imageButtonCreateNewDevEnvSelected.Name = "imageButtonCreateNewDevEnvSelected";
-			this.imageButtonCreateNewDevEnvSelected.Size = new System.Drawing.Size(274, 85);
-			this.imageButtonCreateNewDevEnvSelected.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.imageButtonCreateNewDevEnvSelected.TabIndex = 11;
-			this.imageButtonCreateNewDevEnvSelected.TabStop = false;
-			// 
 			// createProductControl1
 			// 
 			this.createProductControl1.BackColor = System.Drawing.Color.White;
@@ -133,34 +77,52 @@
 			this.createDevEnvControl1.Size = new System.Drawing.Size(622, 334);
 			this.createDevEnvControl1.TabIndex = 12;
 			// 
+			// actionCreateProduct
+			// 
+			this.actionCreateProduct.HoverImage = ((System.Drawing.Image)(resources.GetObject("actionCreateProduct.HoverImage")));
+			this.actionCreateProduct.Location = new System.Drawing.Point(15, 92);
+			this.actionCreateProduct.MainImage = ((System.Drawing.Image)(resources.GetObject("actionCreateProduct.MainImage")));
+			this.actionCreateProduct.MaximumSize = new System.Drawing.Size(274, 85);
+			this.actionCreateProduct.MinimumSize = new System.Drawing.Size(274, 85);
+			this.actionCreateProduct.Name = "actionCreateProduct";
+			this.actionCreateProduct.Size = new System.Drawing.Size(274, 85);
+			this.actionCreateProduct.TabIndex = 13;
+			this.actionCreateProduct.ActionClicked += new System.EventHandler(this.actionCreateProduct_ActionClicked);
+			// 
+			// actionCreateDevEnv
+			// 
+			this.actionCreateDevEnv.HoverImage = ((System.Drawing.Image)(resources.GetObject("actionCreateDevEnv.HoverImage")));
+			this.actionCreateDevEnv.Location = new System.Drawing.Point(15, 184);
+			this.actionCreateDevEnv.MainImage = ((System.Drawing.Image)(resources.GetObject("actionCreateDevEnv.MainImage")));
+			this.actionCreateDevEnv.MaximumSize = new System.Drawing.Size(274, 85);
+			this.actionCreateDevEnv.MinimumSize = new System.Drawing.Size(274, 85);
+			this.actionCreateDevEnv.Name = "actionCreateDevEnv";
+			this.actionCreateDevEnv.Size = new System.Drawing.Size(274, 85);
+			this.actionCreateDevEnv.TabIndex = 14;
+			this.actionCreateDevEnv.ActionClicked += new System.EventHandler(this.actionCreateDevEnv_ActionClicked);
+			// 
 			// FormMain
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(698, 430);
+			this.Controls.Add(this.actionCreateDevEnv);
+			this.Controls.Add(this.actionCreateProduct);
 			this.Controls.Add(this.createDevEnvControl1);
-			this.Controls.Add(this.imageButtonCreateNewDevEnv);
 			this.Controls.Add(this.createProductControl1);
-			this.Controls.Add(this.imageButtonCreateProduct);
-			this.Controls.Add(this.imageButtonCreateProductSelected);
-			this.Controls.Add(this.imageButtonCreateNewDevEnvSelected);
 			this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormMain";
+			this.ShowIcon = true;
 			this.ShowMinimize = true;
+			this.ShowTitle = true;
 			this.Text = "SalesLogix Mobile Developer Tools";
-			this.Controls.SetChildIndex(this.imageButtonCreateNewDevEnvSelected, 0);
-			this.Controls.SetChildIndex(this.imageButtonCreateProductSelected, 0);
-			this.Controls.SetChildIndex(this.imageButtonCreateProduct, 0);
 			this.Controls.SetChildIndex(this.createProductControl1, 0);
-			this.Controls.SetChildIndex(this.imageButtonCreateNewDevEnv, 0);
 			this.Controls.SetChildIndex(this.createDevEnvControl1, 0);
+			this.Controls.SetChildIndex(this.actionCreateProduct, 0);
+			this.Controls.SetChildIndex(this.actionCreateDevEnv, 0);
 			((System.ComponentModel.ISupportInitialize)(this.iconApp)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateProduct)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateProductSelected)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateNewDevEnv)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.imageButtonCreateNewDevEnvSelected)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -171,12 +133,10 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.PictureBox iconApp;
-		private System.Windows.Forms.PictureBox imageButtonCreateProduct;
-		private System.Windows.Forms.PictureBox imageButtonCreateProductSelected;
 		private Content.CreateProductControl createProductControl1;
-		private System.Windows.Forms.PictureBox imageButtonCreateNewDevEnv;
-		private System.Windows.Forms.PictureBox imageButtonCreateNewDevEnvSelected;
 		private Content.CreateDevEnvControl createDevEnvControl1;
+		private Controls.ActionButton actionCreateProduct;
+		private Controls.ActionButton actionCreateDevEnv;
 	}
 }
 

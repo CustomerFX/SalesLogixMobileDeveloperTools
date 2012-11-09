@@ -173,8 +173,8 @@ namespace FX.Mobile.DeveloperTools.Content
 				writer.WriteLine("SalesLogix Mobile Version " + version);
 				writer.WriteLine("Development Environment");
 				writer.WriteLine("------------------------------------------------");
-				writer.WriteLine("\r\n\r\n");
-				writer.WriteLine("Use the 'Start Mobile Website link to start the website in  IIS Express");
+				writer.WriteLine("\r\n");
+				writer.WriteLine("Use the 'Start Mobile Website' link to start the website in  IIS Express");
 				writer.WriteLine("or open IIS and add a new website to point to this directory.");
 				writer.WriteLine("\r\n");
 				writer.WriteLine("To access production configuration visit:");
@@ -182,7 +182,7 @@ namespace FX.Mobile.DeveloperTools.Content
 				writer.WriteLine("\r\n");
 				writer.WriteLine("To access development configuration visit:");
 				writer.WriteLine("http://MobileWebsiteRoot/products/argos-saleslogix/index-dev.html");
-				writer.WriteLine("\r\n\r\n");
+				writer.WriteLine("\r\n");
 				writer.WriteLine("------------------------------------------------");
 				writer.WriteLine("SalesLogix Mobile Development Tools");
 				writer.WriteLine("http://customerfx.com");

@@ -39,6 +39,7 @@
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.button1 = new System.Windows.Forms.Button();
 			this.checkIncludeSample = new System.Windows.Forms.CheckBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// buttonBrowse
@@ -48,7 +49,7 @@
 			this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonBrowse.ForeColor = System.Drawing.Color.White;
 			this.buttonBrowse.Image = ((System.Drawing.Image)(resources.GetObject("buttonBrowse.Image")));
-			this.buttonBrowse.Location = new System.Drawing.Point(547, 62);
+			this.buttonBrowse.Location = new System.Drawing.Point(547, 89);
 			this.buttonBrowse.Name = "buttonBrowse";
 			this.buttonBrowse.Size = new System.Drawing.Size(32, 32);
 			this.buttonBrowse.TabIndex = 21;
@@ -61,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textProductPath.BackColor = System.Drawing.SystemColors.Window;
 			this.textProductPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textProductPath.Location = new System.Drawing.Point(211, 62);
+			this.textProductPath.Location = new System.Drawing.Point(211, 89);
 			this.textProductPath.Name = "textProductPath";
 			this.textProductPath.ReadOnly = true;
 			this.textProductPath.Size = new System.Drawing.Size(330, 20);
@@ -70,7 +71,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(56, 65);
+			this.label3.Location = new System.Drawing.Point(56, 92);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(59, 13);
 			this.label3.TabIndex = 19;
@@ -80,7 +81,7 @@
 			// 
 			this.option20.AutoSize = true;
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.option20.Location = new System.Drawing.Point(266, 19);
+			this.option20.Location = new System.Drawing.Point(266, 46);
 			this.option20.Name = "option20";
 			this.option20.Size = new System.Drawing.Size(39, 17);
 			this.option20.TabIndex = 16;
@@ -92,7 +93,7 @@
 			this.option12.AutoSize = true;
 			this.option12.Checked = true;
 			this.option12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.option12.Location = new System.Drawing.Point(211, 19);
+			this.option12.Location = new System.Drawing.Point(211, 46);
 			this.option12.Name = "option12";
 			this.option12.Size = new System.Drawing.Size(39, 17);
 			this.option12.TabIndex = 15;
@@ -103,7 +104,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(56, 21);
+			this.label1.Location = new System.Drawing.Point(56, 48);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(74, 13);
 			this.label1.TabIndex = 14;
@@ -112,7 +113,7 @@
 			// labelStatus
 			// 
 			this.labelStatus.AutoSize = true;
-			this.labelStatus.Location = new System.Drawing.Point(56, 246);
+			this.labelStatus.Location = new System.Drawing.Point(56, 272);
 			this.labelStatus.Name = "labelStatus";
 			this.labelStatus.Size = new System.Drawing.Size(197, 13);
 			this.labelStatus.TabIndex = 25;
@@ -123,7 +124,7 @@
 			// 
 			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.progressBar1.Location = new System.Drawing.Point(59, 272);
+			this.progressBar1.Location = new System.Drawing.Point(59, 298);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.Size = new System.Drawing.Size(482, 29);
 			this.progressBar1.TabIndex = 24;
@@ -135,7 +136,7 @@
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Location = new System.Drawing.Point(211, 151);
+			this.button1.Location = new System.Drawing.Point(211, 178);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(193, 36);
 			this.button1.TabIndex = 23;
@@ -147,17 +148,29 @@
 			// 
 			this.checkIncludeSample.AutoSize = true;
 			this.checkIncludeSample.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.checkIncludeSample.Location = new System.Drawing.Point(211, 101);
+			this.checkIncludeSample.Location = new System.Drawing.Point(211, 128);
 			this.checkIncludeSample.Name = "checkIncludeSample";
 			this.checkIncludeSample.Size = new System.Drawing.Size(168, 17);
 			this.checkIncludeSample.TabIndex = 26;
 			this.checkIncludeSample.Text = "Include argos-sample product?";
 			this.checkIncludeSample.UseVisualStyleBackColor = true;
 			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.Color.SteelBlue;
+			this.label5.Location = new System.Drawing.Point(54, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(405, 25);
+			this.label5.TabIndex = 27;
+			this.label5.Text = "Create new mobile development environment";
+			// 
 			// CreateDevEnvControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.checkIncludeSample);
 			this.Controls.Add(this.labelStatus);
 			this.Controls.Add(this.progressBar1);
@@ -179,6 +192,7 @@
 			this.Controls.SetChildIndex(this.progressBar1, 0);
 			this.Controls.SetChildIndex(this.labelStatus, 0);
 			this.Controls.SetChildIndex(this.checkIncludeSample, 0);
+			this.Controls.SetChildIndex(this.label5, 0);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -196,5 +210,6 @@
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.CheckBox checkIncludeSample;
+		private System.Windows.Forms.Label label5;
 	}
 }

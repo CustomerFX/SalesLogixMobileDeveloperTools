@@ -28,7 +28,7 @@
     <PublisherName>Customer FX Corporation</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -104,6 +104,12 @@
     <Compile Include="Content\CreateProductControl.Designer.cs">
       <DependentUpon>CreateProductControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ActionButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActionButton.Designer.cs">
+      <DependentUpon>ActionButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <Compile Include="Utility\FileIcon.cs" />
     <Compile Include="Utility\ShellLink.cs" />
+    <EmbeddedResource Include="Controls\ActionButton.resx">
+      <DependentUpon>ActionButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Templates\Mobile2_0\configuration\development.js" />
     <EmbeddedResource Include="Templates\Mobile2_0\configuration\production.js" />
     <EmbeddedResource Include="Templates\Mobile2_0\index-dev-custom.html" />

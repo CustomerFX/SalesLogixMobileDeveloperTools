@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLaunchWeb));
 			this.label1 = new System.Windows.Forms.Label();
 			this.panelProductList = new System.Windows.Forms.Panel();
@@ -40,6 +41,8 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.textPort = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.labelPath = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.panelError.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,9 +72,9 @@
 			this.panelError.Controls.Add(this.label3);
 			this.panelError.Controls.Add(this.label2);
 			this.panelError.Controls.Add(this.pictureBox1);
-			this.panelError.Location = new System.Drawing.Point(14, 76);
+			this.panelError.Location = new System.Drawing.Point(671, 76);
 			this.panelError.Name = "panelError";
-			this.panelError.Size = new System.Drawing.Size(674, 326);
+			this.panelError.Size = new System.Drawing.Size(673, 326);
 			this.panelError.TabIndex = 14;
 			this.panelError.Visible = false;
 			// 
@@ -156,9 +159,18 @@
 			this.label5.TabIndex = 17;
 			this.label5.Text = "To stop, look for IIS Express in the system tray, right-click, and select \'Exit\'";
 			// 
+			// labelPath
+			// 
+			this.labelPath.AutoEllipsis = true;
+			this.labelPath.Location = new System.Drawing.Point(229, 131);
+			this.labelPath.Name = "labelPath";
+			this.labelPath.Size = new System.Drawing.Size(406, 26);
+			this.labelPath.TabIndex = 18;
+			// 
 			// FormLaunchWeb
 			// 
 			this.ClientSize = new System.Drawing.Size(698, 430);
+			this.Controls.Add(this.labelPath);
 			this.Controls.Add(this.panelError);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.textPort);
@@ -178,6 +190,7 @@
 			this.Controls.SetChildIndex(this.textPort, 0);
 			this.Controls.SetChildIndex(this.label5, 0);
 			this.Controls.SetChildIndex(this.panelError, 0);
+			this.Controls.SetChildIndex(this.labelPath, 0);
 			this.panelError.ResumeLayout(false);
 			this.panelError.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -200,6 +213,8 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox textPort;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label labelPath;
+		private System.Windows.Forms.ToolTip toolTip1;
 
 	}
 }

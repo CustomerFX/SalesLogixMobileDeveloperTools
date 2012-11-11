@@ -71,6 +71,9 @@ namespace FX.Mobile.DeveloperTools.UI
 
 			if (productList.Contains("argos-saleslogix"))
 				AddProduct("argos-saleslogix");
+
+			labelPath.Text = string.Format("Path:  {0}", Program.Path);
+			toolTip1.SetToolTip(labelPath, "Mobile Environment Path:\r\n" + Program.Path);
 		}
 
 		private void AddProduct(string name)

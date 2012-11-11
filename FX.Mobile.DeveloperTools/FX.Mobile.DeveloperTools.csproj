@@ -129,6 +129,9 @@
       <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ControlExtension.cs" />
+    <Compile Include="Managers\DeploymentManager.cs" />
+    <Compile Include="Managers\IISExpressManager.cs" />
+    <Compile Include="Managers\LaunchManager.cs" />
     <Compile Include="Model\AppNotification.cs" />
     <Compile Include="UI\FormLaunchWeb.cs">
       <SubType>Form</SubType>

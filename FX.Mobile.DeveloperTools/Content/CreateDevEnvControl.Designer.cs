@@ -40,6 +40,7 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.checkIncludeSample = new System.Windows.Forms.CheckBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.checkLaunch = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// buttonBrowse
@@ -136,7 +137,7 @@
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Location = new System.Drawing.Point(211, 178);
+			this.button1.Location = new System.Drawing.Point(211, 202);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(193, 36);
 			this.button1.TabIndex = 23;
@@ -166,10 +167,22 @@
 			this.label5.TabIndex = 27;
 			this.label5.Text = "Create new mobile development environment";
 			// 
+			// checkLaunch
+			// 
+			this.checkLaunch.AutoSize = true;
+			this.checkLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.checkLaunch.Location = new System.Drawing.Point(211, 161);
+			this.checkLaunch.Name = "checkLaunch";
+			this.checkLaunch.Size = new System.Drawing.Size(238, 17);
+			this.checkLaunch.TabIndex = 28;
+			this.checkLaunch.Text = "Launch website after environment is created?";
+			this.checkLaunch.UseVisualStyleBackColor = true;
+			// 
 			// CreateDevEnvControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.checkLaunch);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.checkIncludeSample);
 			this.Controls.Add(this.labelStatus);
@@ -193,6 +206,7 @@
 			this.Controls.SetChildIndex(this.labelStatus, 0);
 			this.Controls.SetChildIndex(this.checkIncludeSample, 0);
 			this.Controls.SetChildIndex(this.label5, 0);
+			this.Controls.SetChildIndex(this.checkLaunch, 0);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -211,5 +225,6 @@
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.CheckBox checkIncludeSample;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.CheckBox checkLaunch;
 	}
 }

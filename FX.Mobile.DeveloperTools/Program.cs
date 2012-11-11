@@ -38,6 +38,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using FX.Mobile.DeveloperTools.Managers;
 using Microsoft.Win32;
 
 namespace FX.Mobile.DeveloperTools
@@ -51,7 +52,9 @@ namespace FX.Mobile.DeveloperTools
 			Application.SetCompatibleTextRenderingDefault(false);
 
 			RegisterApp();
-			InstallLauncher();
+
+			var launcher = new LaunchManager();
+			launcher.Install();
 
 			if (args.Length == 0)
 			{
@@ -80,15 +83,6 @@ namespace FX.Mobile.DeveloperTools
 				key.SetValue("Path", Application.ExecutablePath);
 			}
 			catch { }
-		}
-
-		private static void InstallLauncher()
-		{
-			string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-			if (!File.Exists(System.IO.Path.Combine(path, "FX.Mobile.DeveloperTools.Launcher.exe")))
-			{
-				File.Copy(System.IO.Path.Combine(new FileInfo(Application.ExecutablePath).DirectoryName, "Deployment\\FX.Mobile.DeveloperTools.Launcher.exe.bak"), System.IO.Path.Combine(path, "FX.Mobile.DeveloperTools.Launcher.exe"));
-			}
 		}
 
 		public static string Path { get; set; }

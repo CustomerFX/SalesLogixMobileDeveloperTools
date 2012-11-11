@@ -36,11 +36,9 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using FX.Mobile.DeveloperTools.Controls;
-using Microsoft.Win32;
+using FX.Mobile.DeveloperTools.Managers;
 
 namespace FX.Mobile.DeveloperTools.UI
 {
@@ -53,22 +51,16 @@ namespace FX.Mobile.DeveloperTools.UI
 
 		private void FormLaunchWeb_Load(object sender, EventArgs e)
 		{
-			if (!IsIisExpressInstalled())
+			var iisexpress = new IISExpressManager();
+			if (!iisexpress.IsInstalled)
 			{
 				panelError.Visible = true;
 				WireControlMove(panelError);
 				return;
 			}
 
-			var productList = new List<string>();
-
-			var directories = Directory.GetDirectories(Path.Combine(Program.Path, "products"));
-			foreach (var directory in directories)
-			{
-				string[] prodNameParts = directory.Split('\\');
-				productList.Add(prodNameParts[prodNameParts.Length-1]);
-			}
-
+			var deployment = new DeploymentManager(Program.Path);
+			var productList = deployment.Products;
 			productList.Reverse();
 
 			foreach (var prod in productList)
@@ -96,6 +88,8 @@ namespace FX.Mobile.DeveloperTools.UI
 		{
 			Program.Port = textPort.Text;
 
+			var iisexpress = new IISExpressManager();
+
 			var prodCtrl = (ProductControl)sender;
 			string url = string.Format("http://localhost:{0}/products/argos-saleslogix/index{1}{2}{3}.html", Program.Port, (prodCtrl.SelectedConfiguration != string.Empty ? "-" : ""), prodCtrl.SelectedConfiguration, (prodCtrl.ArgosProduct != "argos-saleslogix" ? prodCtrl.ArgosProduct.ToLower().Replace("argos", "") : ""));
 
@@ -103,7 +97,7 @@ namespace FX.Mobile.DeveloperTools.UI
 			{
 				Path = "\"" + Program.Path + "\"",
 				Port = int.Parse(Program.Port)
-			}, string.Format(@"C:\Program Files{0}\IIS Express\iisexpress.exe", Is64bit() ? " (x86)" : "")))
+			}, iisexpress.ExecutablePath))
 			{
 				try
 				{
@@ -122,19 +116,6 @@ namespace FX.Mobile.DeveloperTools.UI
 			catch { }
 
 			this.Close();
-		}
-
-		private bool IsIisExpressInstalled()
-		{
-			return (Directory.Exists(string.Format(@"C:\Program Files{0}\IIS Express", Is64bit() ? " (x86)" : "")));
-		}
-
-		private static bool Is64bit()
-		{
-			using (var key = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\"))
-			{
-				return key.GetValue("ProgramFilesDir (x86)") != null;
-			}
 		}
 
 		private void textPort_KeyPress(object sender, KeyPressEventArgs e)

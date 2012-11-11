@@ -40,6 +40,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+using FX.Mobile.DeveloperTools.Managers;
 
 namespace FX.Mobile.DeveloperTools.Content
 {
@@ -61,19 +62,10 @@ namespace FX.Mobile.DeveloperTools.Content
 				{
 					textProductPath.Text = dlg.SelectedPath;
 
-					panelWarning.Visible = !(Directory.Exists(Path.Combine(textProductPath.Text, @"argos-sdk\")) && Directory.Exists(Path.Combine(textProductPath.Text, @"products\")));
+					var deployment = new DeploymentManager(textProductPath.Text);
+					panelWarning.Visible = !(deployment.HasSDK && deployment.HasProducts);
 				}
 			}
-		}
-
-		private bool EnvironmentIsVersion12()
-		{
-			return Directory.Exists(Path.Combine(textProductPath.Text, @"argos-sdk\libraries\ext"));
-		}
-
-		private bool EnvironmentHasSDK()
-		{
-			return Directory.Exists(Path.Combine(textProductPath.Text, "argos-sdk"));
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -81,18 +73,20 @@ namespace FX.Mobile.DeveloperTools.Content
 			if (textProductName.Text == "") return;
 			if (textProductPath.Text == "") return;
 
-			if (option12.Checked && !EnvironmentIsVersion12() && EnvironmentHasSDK())
+			var deployment = new DeploymentManager(textProductPath.Text);
+
+			if (option12.Checked && deployment.Version != DeploymentVersion.Version12 && deployment.HasSDK)
 			{
 				MessageBox.Show("You've selected to create a version 1.2 product but the target environment is not a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (option20.Checked && EnvironmentIsVersion12() && EnvironmentHasSDK())
+			if (option20.Checked && deployment.Version == DeploymentVersion.Version12 && deployment.HasSDK)
 			{
 				MessageBox.Show("You've selected to create a version 2.0 product but the target environment is a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
-			if (Directory.Exists(Path.Combine(textProductPath.Text, @"products\argos-" + textProductName.Text.ToLower() + @"\")))
+			if (deployment.ProductExists(textProductName.Text))
 			{
 				MessageBox.Show("The product '" + textProductName.Text + "' already exists at the selected path. Choose another name.", "Product Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;

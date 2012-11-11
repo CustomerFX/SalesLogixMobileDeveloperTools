@@ -40,6 +40,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using FX.Mobile.DeveloperTools.Managers;
 using FX.Mobile.DeveloperTools.Utility;
 using Ionic.Zip;
 
@@ -60,7 +61,8 @@ namespace FX.Mobile.DeveloperTools.Content
 			if (textProductPath.Text == string.Empty)
 				return;
 
-			if (Directory.Exists(Path.Combine(textProductPath.Text, "argos-sdk")))
+			var deployment = new DeploymentManager(textProductPath.Text);
+			if (deployment.HasSDK)
 			{
 				MessageBox.Show("The selected path already has a mobile environment. Choose another path.", "Mobile Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
@@ -229,11 +231,21 @@ namespace FX.Mobile.DeveloperTools.Content
 				link.Save(Path.Combine(textProductPath.Text, link.Description + ".lnk"));
 			}
 
-			MessageBox.Show("The mobile development environment has been created. To start the website use the 'Start Mobile Website' shortcut located at the root of the website.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			button1.Enabled = true;
-			this.Back();
 			progressBar1.Visible = false;
 			labelStatus.Visible = false;
+
+			if (checkLaunch.Checked)
+			{
+				var launcher = new LaunchManager();
+				launcher.Launch(textProductPath.Text);
+				this.FindForm().Close();
+			}
+			else
+			{
+				MessageBox.Show("The mobile development environment has been created. To start the website use the 'Start Mobile Website' shortcut located at the root of the website.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				this.Back();
+			}
 		}
 
 		void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

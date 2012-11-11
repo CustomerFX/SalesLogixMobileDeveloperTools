@@ -36,49 +36,45 @@
 #endregion
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using FX.Mobile.DeveloperTools.Controls;
-using FX.Mobile.DeveloperTools.Managers;
 
-namespace FX.Mobile.DeveloperTools.Content
+namespace FX.Mobile.DeveloperTools.Managers
 {
-	public partial class StartMobileWebsiteControl : ActionPanel
+	public class LaunchManager
 	{
-		public StartMobileWebsiteControl()
+		public string InstallPath
 		{
-			InitializeComponent();
-		}
-
-		private void buttonBrowse_Click(object sender, EventArgs e)
-		{
-			using (var dlg = new FolderBrowserDialog())
+			get
 			{
-				dlg.Description = "Select root of mobile development environment";
-				if (textProductPath.Text != string.Empty) dlg.SelectedPath = textProductPath.Text;
-
-				if (dlg.ShowDialog() == DialogResult.OK)
-				{
-					textProductPath.Text = dlg.SelectedPath;
-
-					var deployment = new DeploymentManager(textProductPath.Text);
-					panelWarning.Visible = !(deployment.HasSDK && deployment.HasProducts);
-				}
+				string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+				return Path.Combine(path, "FX.Mobile.DeveloperTools.Launcher.exe");
 			}
 		}
 
-		private void buttonStart_Click(object sender, EventArgs e)
+		public bool IsInstalled
 		{
-			if (textProductPath.Text == string.Empty)
-				return;
+			get
+			{
+				return File.Exists(this.InstallPath);
+			}
+		}
 
-			if (panelWarning.Visible)
-				return;
+		public void Install()
+		{
+			if (!File.Exists(InstallPath))
+			{
+				File.Copy(System.IO.Path.Combine(new FileInfo(Application.ExecutablePath).DirectoryName, @"Deployment\FX.Mobile.DeveloperTools.Launcher.exe.bak"), this.InstallPath);
+			}
+		}
 
-			var launcher = new LaunchManager();
-			launcher.Launch(textProductPath.Text);
-
-			this.FindForm().Close();
+		public void Launch(string DeploymentPath)
+		{
+			var process = new Process();
+			process.StartInfo.FileName = this.InstallPath;
+			process.StartInfo.Arguments = "/path:\"" + DeploymentPath + "\"";
+			process.Start();
 		}
 	}
 }

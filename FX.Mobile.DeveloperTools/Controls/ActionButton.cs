@@ -41,6 +41,12 @@ using System.Windows.Forms;
 
 namespace FX.Mobile.DeveloperTools.Controls
 {
+	public enum ActionButtonSize
+	{
+		Normal,
+		Wide
+	}
+
 	public partial class ActionButton : UserControl
 	{
 		public event EventHandler ActionClicked;
@@ -62,6 +68,42 @@ namespace FX.Mobile.DeveloperTools.Controls
 			set { imageHover.Image = value; }
 		}
 
+		public string MainImageUrl
+		{
+			get { return imageMain.ImageLocation; }
+			set { imageMain.ImageLocation = value; }
+		}
+
+		public string HoverImageUrl
+		{
+			get { return imageHover.ImageLocation; }
+			set { imageHover.ImageLocation = value; }
+		}
+
+		public ActionButtonSize ActionButtonSize
+		{
+			get { return (this.Width == 274 ? ActionButtonSize.Normal : ActionButtonSize.Wide); }
+			set
+			{
+				if (value == ActionButtonSize.Wide)
+				{
+					this.Size = new Size(555, 85);
+					this.MinimumSize = new Size(555, 85);
+					this.MaximumSize = new Size(555, 85);
+					imageMain.Size = new Size(555, 85);
+					imageHover.Size = new Size(555, 85);
+				}
+				else
+				{
+					this.Size = new Size(274, 85);
+					this.MinimumSize = new Size(274, 85);
+					this.MaximumSize = new Size(274, 85);
+					imageMain.Size = new Size(274, 85);
+					imageHover.Size = new Size(274, 85);
+				}
+			}
+		}
+
 		private void imageMain_Click(object sender, EventArgs e)
 		{
 			if (ActionClicked != null)
@@ -70,9 +112,18 @@ namespace FX.Mobile.DeveloperTools.Controls
 
 		private void imageButton_MouseEnterLeave(object sender, EventArgs e)
 		{
-			Image img = imageMain.Image;
-			imageMain.Image = imageHover.Image;
-			imageHover.Image = img;
+			if (string.IsNullOrEmpty(imageMain.ImageLocation))
+			{
+				Image img = imageMain.Image;
+				imageMain.Image = imageHover.Image;
+				imageHover.Image = img;
+			}
+			else
+			{
+				string imgLoc = imageMain.ImageLocation;
+				imageMain.ImageLocation = imageHover.ImageLocation;
+				imageHover.ImageLocation = imgLoc;
+			}
 		}
 	}
 }

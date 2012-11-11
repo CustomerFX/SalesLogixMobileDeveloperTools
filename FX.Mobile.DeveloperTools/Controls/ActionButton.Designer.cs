@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionButton));
 			this.imageHover = new System.Windows.Forms.PictureBox();
 			this.imageMain = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.imageHover)).BeginInit();
@@ -36,21 +37,18 @@
 			// 
 			// imageHover
 			// 
-			this.imageHover.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.imageHover.Location = new System.Drawing.Point(0, 0);
 			this.imageHover.Name = "imageHover";
 			this.imageHover.Size = new System.Drawing.Size(274, 85);
-			this.imageHover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.imageHover.TabIndex = 0;
 			this.imageHover.TabStop = false;
 			// 
 			// imageMain
 			// 
-			this.imageMain.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.imageMain.InitialImage = ((System.Drawing.Image)(resources.GetObject("imageMain.InitialImage")));
 			this.imageMain.Location = new System.Drawing.Point(0, 0);
 			this.imageMain.Name = "imageMain";
 			this.imageMain.Size = new System.Drawing.Size(274, 85);
-			this.imageMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.imageMain.TabIndex = 1;
 			this.imageMain.TabStop = false;
 			this.imageMain.Click += new System.EventHandler(this.imageMain_Click);

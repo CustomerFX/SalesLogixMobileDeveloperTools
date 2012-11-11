@@ -122,6 +122,7 @@
     <Compile Include="Controls\ProductControl.Designer.cs">
       <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\ControlExtension.cs" />
     <Compile Include="UI\FormLaunchWeb.cs">
       <SubType>Form</SubType>
     </Compile>

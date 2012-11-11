@@ -39,7 +39,7 @@
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+			this.panel1.BackColor = System.Drawing.Color.DarkGreen;
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.pictureBox1);
@@ -56,7 +56,7 @@
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(176, 35);
 			this.label3.TabIndex = 9;
-			this.label3.Text = "Create a new mobile dev environment from source on github";
+			this.label3.Text = "Read blog posts and articles on developing for SalesLogix Mobile";
 			// 
 			// label2
 			// 
@@ -64,9 +64,9 @@
 			this.label2.ForeColor = System.Drawing.Color.White;
 			this.label2.Location = new System.Drawing.Point(95, 16);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(179, 21);
+			this.label2.Size = new System.Drawing.Size(96, 21);
 			this.label2.TabIndex = 8;
-			this.label2.Text = "Create Dev Environment";
+			this.label2.Text = "Notification!";
 			// 
 			// pictureBox1
 			// 

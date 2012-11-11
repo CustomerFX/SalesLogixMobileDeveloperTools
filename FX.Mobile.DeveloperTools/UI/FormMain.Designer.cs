@@ -37,6 +37,8 @@
 			this.createDevEnvControl1 = new FX.Mobile.DeveloperTools.Content.CreateDevEnvControl();
 			this.actionCreateProduct = new FX.Mobile.DeveloperTools.Controls.ActionButton();
 			this.actionCreateDevEnv = new FX.Mobile.DeveloperTools.Controls.ActionButton();
+			this.actionGetInformation = new FX.Mobile.DeveloperTools.Controls.ActionButton();
+			this.actionNotification = new FX.Mobile.DeveloperTools.Controls.ActionButton();
 			((System.ComponentModel.ISupportInitialize)(this.iconApp)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -79,9 +81,12 @@
 			// 
 			// actionCreateProduct
 			// 
+			this.actionCreateProduct.ActionButtonSize = FX.Mobile.DeveloperTools.Controls.ActionButtonSize.Normal;
 			this.actionCreateProduct.HoverImage = ((System.Drawing.Image)(resources.GetObject("actionCreateProduct.HoverImage")));
+			this.actionCreateProduct.HoverImageUrl = null;
 			this.actionCreateProduct.Location = new System.Drawing.Point(15, 92);
 			this.actionCreateProduct.MainImage = ((System.Drawing.Image)(resources.GetObject("actionCreateProduct.MainImage")));
+			this.actionCreateProduct.MainImageUrl = null;
 			this.actionCreateProduct.MaximumSize = new System.Drawing.Size(274, 85);
 			this.actionCreateProduct.MinimumSize = new System.Drawing.Size(274, 85);
 			this.actionCreateProduct.Name = "actionCreateProduct";
@@ -91,9 +96,12 @@
 			// 
 			// actionCreateDevEnv
 			// 
+			this.actionCreateDevEnv.ActionButtonSize = FX.Mobile.DeveloperTools.Controls.ActionButtonSize.Normal;
 			this.actionCreateDevEnv.HoverImage = ((System.Drawing.Image)(resources.GetObject("actionCreateDevEnv.HoverImage")));
+			this.actionCreateDevEnv.HoverImageUrl = null;
 			this.actionCreateDevEnv.Location = new System.Drawing.Point(15, 184);
 			this.actionCreateDevEnv.MainImage = ((System.Drawing.Image)(resources.GetObject("actionCreateDevEnv.MainImage")));
+			this.actionCreateDevEnv.MainImageUrl = null;
 			this.actionCreateDevEnv.MaximumSize = new System.Drawing.Size(274, 85);
 			this.actionCreateDevEnv.MinimumSize = new System.Drawing.Size(274, 85);
 			this.actionCreateDevEnv.Name = "actionCreateDevEnv";
@@ -101,11 +109,44 @@
 			this.actionCreateDevEnv.TabIndex = 14;
 			this.actionCreateDevEnv.ActionClicked += new System.EventHandler(this.actionCreateDevEnv_ActionClicked);
 			// 
+			// actionGetInformation
+			// 
+			this.actionGetInformation.ActionButtonSize = FX.Mobile.DeveloperTools.Controls.ActionButtonSize.Normal;
+			this.actionGetInformation.HoverImage = ((System.Drawing.Image)(resources.GetObject("actionGetInformation.HoverImage")));
+			this.actionGetInformation.HoverImageUrl = null;
+			this.actionGetInformation.Location = new System.Drawing.Point(296, 92);
+			this.actionGetInformation.MainImage = ((System.Drawing.Image)(resources.GetObject("actionGetInformation.MainImage")));
+			this.actionGetInformation.MainImageUrl = null;
+			this.actionGetInformation.MaximumSize = new System.Drawing.Size(274, 85);
+			this.actionGetInformation.MinimumSize = new System.Drawing.Size(274, 85);
+			this.actionGetInformation.Name = "actionGetInformation";
+			this.actionGetInformation.Size = new System.Drawing.Size(274, 85);
+			this.actionGetInformation.TabIndex = 15;
+			this.actionGetInformation.ActionClicked += new System.EventHandler(this.actionGetInformation_ActionClicked);
+			// 
+			// actionNotification
+			// 
+			this.actionNotification.ActionButtonSize = FX.Mobile.DeveloperTools.Controls.ActionButtonSize.Wide;
+			this.actionNotification.HoverImage = null;
+			this.actionNotification.HoverImageUrl = null;
+			this.actionNotification.Location = new System.Drawing.Point(15, 276);
+			this.actionNotification.MainImage = null;
+			this.actionNotification.MainImageUrl = null;
+			this.actionNotification.MaximumSize = new System.Drawing.Size(555, 85);
+			this.actionNotification.MinimumSize = new System.Drawing.Size(555, 85);
+			this.actionNotification.Name = "actionNotification";
+			this.actionNotification.Size = new System.Drawing.Size(555, 85);
+			this.actionNotification.TabIndex = 16;
+			this.actionNotification.Visible = false;
+			this.actionNotification.ActionClicked += new System.EventHandler(this.actionNotification_ActionClicked);
+			// 
 			// FormMain
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(698, 430);
+			this.Controls.Add(this.actionNotification);
+			this.Controls.Add(this.actionGetInformation);
 			this.Controls.Add(this.actionCreateDevEnv);
 			this.Controls.Add(this.actionCreateProduct);
 			this.Controls.Add(this.createDevEnvControl1);
@@ -122,6 +163,8 @@
 			this.Controls.SetChildIndex(this.createDevEnvControl1, 0);
 			this.Controls.SetChildIndex(this.actionCreateProduct, 0);
 			this.Controls.SetChildIndex(this.actionCreateDevEnv, 0);
+			this.Controls.SetChildIndex(this.actionGetInformation, 0);
+			this.Controls.SetChildIndex(this.actionNotification, 0);
 			((System.ComponentModel.ISupportInitialize)(this.iconApp)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -137,6 +180,8 @@
 		private Content.CreateDevEnvControl createDevEnvControl1;
 		private Controls.ActionButton actionCreateProduct;
 		private Controls.ActionButton actionCreateDevEnv;
+		private Controls.ActionButton actionGetInformation;
+		private Controls.ActionButton actionNotification;
 	}
 }
 

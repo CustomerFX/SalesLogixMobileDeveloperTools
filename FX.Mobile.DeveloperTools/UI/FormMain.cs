@@ -36,6 +36,9 @@
 #endregion
 
 using System;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace FX.Mobile.DeveloperTools.UI
 {
@@ -47,6 +50,33 @@ namespace FX.Mobile.DeveloperTools.UI
 
 			WireControlMove(createDevEnvControl1);
 			WireControlMove(createProductControl1);
+
+			var thread = new Thread(new ThreadStart(this.NotificationCheck));
+			thread.Start();
+		}
+
+		private void NotificationCheck()
+		{
+			var client = new WebClient();
+			string notification = client.DownloadString("http://cfxconnect.com/applications/SalesLogixMobileDeveloperTools/notification.txt");
+
+			if (string.IsNullOrEmpty(notification))
+			{
+				this.SafeThreadAction(x => x.Controls["actionNotification"].Visible = false);
+			}
+			else
+			{
+				try
+				{
+					string[] notificationParts = notification.Split('|');
+					actionNotification.SafeThreadAction(x => x.Tag = notificationParts[0]);
+					actionNotification.SafeThreadAction(x => x.MainImageUrl = notificationParts[1]);
+					actionNotification.SafeThreadAction(x => x.HoverImageUrl = notificationParts[2]);
+
+					this.SafeThreadAction(x => x.Controls["actionNotification"].Visible = true);
+				}
+				catch { }
+			}
 		}
 
 		private void actionCreateProduct_ActionClicked(object sender, EventArgs e)
@@ -57,6 +87,27 @@ namespace FX.Mobile.DeveloperTools.UI
 		private void actionCreateDevEnv_ActionClicked(object sender, EventArgs e)
 		{
 			createDevEnvControl1.SlideOut();
+		}
+
+		private void actionGetInformation_ActionClicked(object sender, EventArgs e)
+		{
+			try
+			{
+				System.Diagnostics.Process.Start("http://customerfx.com/pages/crmdeveloper/pages/saleslogix-mobile-developer-series.aspx");
+			}
+			catch { }
+		}
+
+		private void actionNotification_ActionClicked(object sender, EventArgs e)
+		{
+			if (actionNotification.Tag == null && !string.IsNullOrEmpty(actionNotification.Tag.ToString()))
+				return;
+
+			try
+			{
+				System.Diagnostics.Process.Start(actionNotification.Tag.ToString());
+			}
+			catch { }
 		}
 	}
 }

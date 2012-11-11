@@ -104,6 +104,12 @@
     <Compile Include="Content\CreateProductControl.Designer.cs">
       <DependentUpon>CreateProductControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Content\StartMobileWebsiteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Content\StartMobileWebsiteControl.Designer.cs">
+      <DependentUpon>StartMobileWebsiteControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ActionButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     <Compile Include="Utility\Machine.cs" />
     <Compile Include="Utility\Notifications.cs" />
     <Compile Include="Utility\ShellLink.cs" />
+    <EmbeddedResource Include="Content\StartMobileWebsiteControl.resx">
+      <DependentUpon>StartMobileWebsiteControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ActionButton.resx">
       <DependentUpon>ActionButton.cs</DependentUpon>
     </EmbeddedResource>

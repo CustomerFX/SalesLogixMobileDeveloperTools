@@ -117,37 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Use this option to browse to a mobile development environment and start the website in your browser without using IIS. This option is also available using the 'Start Mobile Website' shortcut found in development environments created using this tool.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonBrowse.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAOhJREFUSEtjGD7ArWnLYdemLfdxYY/6bTJQpeQBkCFAS/7jwu712xWgSskDhCwA
+        yve7Nm5uIBbb168XgBoNAYQsIBVj+JjmFrg1bi7A5lVyMUYQDV3g2rS5261x63xaYQZgeO3GFknUwKCE
+        A0o9/dgkqYFdG7dsZnBp2pSCTZIaGBT8DC71W02wSVIDA0MngcG+fj8HNklqYJDjoSlpy3VsCijF9vWr
+        eMAWuDVuWY1NASUYnIJgAJS1sSmiBINTEAy4NW0KwKaIEgxOQTDgVr9JA5siSjA4BSEDoOBndEWUYHgK
+        GuKAgQEAJqx99XwUMPIAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAABjFJREFUeF7t3S9QHVcUx3EEIiIiIiKiogJRgUBERFREICoQiIgIBAJRgaiIjMgM
-        AhERURmBiKisiIhAVCAqKiIQFYiKiIiIiIqKzNB+f+x5DNDH7rnLvt0N+/vM3IHw7tndOfew7N79kyUz
-        MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM7PxOD09/evfQsT8FuH2tXMBTJwLYOJcABPnApg4F8DE
-        uQBuOcZrmQHb5euD+NElXRcAH7+g3Yl/2pAYiG0G60SDhm/jx5csoAD0+UfaT3y7HD+2PpH4NQbgvQbj
-        gt4KYIZ+Kr71+Mj6QNJ3af9UQ3BJ7wUg9P1C2+Nb7w0WiQTfI9G/nmV9vkEKYIaYI9o30c26RH4fkNw/
-        q1Rfa9ACEOI+8uW76GpdIKkricGXwQtAXAQdUiIjoRmjKABxEXSABGq3nx18GU0BSGz73LkJa0DiNLlz
-        eJbJvFEVgLCcI7747KAUSdNsW6nRFYCwrJcRahnkbJ2kfanSV2SUBRA2I9zqkCjt+mdTu2nE7Mci/qfr
-        AuAzTUQVFSj9dTxwNxZh1yFRml8vopgIn4vPOy0A4fMntNIi2Itwm4ccaabvc5WuZhoA2k6EX4s+nReA
-        0GeD9neENKKvpq/n/pkykKCXVapy6N84+EK/hRSA0HW9ishhub9EqF1Ebu6QnJLf/rcR2miRBSD0/TnC
-        GtFXey1fL7iK3GxXKWpGAj+XJJG+Cy0Aut8tWQd9n0eozZCU3yM/GdsRlrLoAhBCHleRzVj2SYSZkJDV
-        yE2j0oGRPgpAiDmI8IzHEWYk7nkkpRF9n0ZYWo8F8CjCG9HXs4MzJONt5KUW/T7xpfhmTOJ6KQAh7jgW
-        UYt+RxFiMbCN6PcqQooQ12cBpCay6Kc5AV8kIhErVUqa0Xc1wooQ11sBEHo/BrcR/R5G2HSRhKeRj1r0
-        +xAhxYjtrQCEWF0CbkS/3QiZLpLwLPJRS0mNkGLE9l0Ab2IxTV5EyHSRLN1O3Yh+radQByiA/VhMLfq9
-        jpDpIgmpc2clNUKKEdt3AfwYi6lFP18XIAl19/mfU1IjpBixfRfAD7GYWjdZx62hJEQ+atFvK0KKEdtr
-        ARCemhZmHccRMl0kIfsnoPUR8wAFsFktpd5N1nFrkITsAVPru2n6LgBis8cAbyJkukhCdubsIEKKEdv3
-        HiB1RzPraH1ge2uQhK3IR62bDEjfBUBsah6Afp4IIg/ZAyZNr7Z6K8cABfAhFlOLfk8iZLpIQvpaAFrd
-        W99nARBXckn4UYRNG4nI/sa0mjmLQdGepqStRXgR1pWd2dTdxL4aKCTjVZWWevTTZeNRJ41tTD3UQj+f
-        AcyQj/St1SSu9YzgorFtqSubQt/WE1u3DvnQ42DZm0L0iNXoXtHGNqUfaaOfnijyY2IXkZSSGypHdxmV
-        7U8/0kbfwwizGZKyEflpRF89QDKaR6zYFr3IIrUHE/r6/H8eEnP1vX/Xoq9uvhx8N8o2aNeffqaBvqP8
-        EzYKJEanX2kkU3cTD3pWwDa8rrYmreihlskhoe8iUSn0H+z+etZd9Cg7/bXX8rl/HRKkV8CWPnevuffe
-        /hywLu32i55kFmI2YhFWh0SVnBGcIUbHDws/MGQduu279OVV2r7W1xYmh3zpqLrN/L0OsPSU8UJ2syx3
-        s+V26WnmlViMZZCwVVr67RsXEXdM62x3yyK/Z3mpe/2vIk5/zvw28TY0iJHAVjRotB2+vR+LTCNGz/xv
-        0VLPLV6H+NFOXX8VSGD6yeE6LEfF8IymO3bXaOdv8NT3+pk+o+kNYIe01oU3wzJ8338XSGT2SZvRYJt1
-        t7NP+bpCQlPX2ceAbdVZjAe/ayRWf5NTT94OgW3TC6A8z79IJPghTad7o8I26WKQj/b7QKI1T5B6oqgP
-        bMsfNJ/n943ca2Im9UqWRWDdJ7TidxZZhxiHZZr+78DUjaVdYF2faLoQ5AO9sWAw9KZRneen7ykoxbL1
-        G695iXuxWhsjBkn/yZSKodX07UUs470Gndbq/UQ2MMZQB4w7tD3aAe0dTYN6fibB99ql6/qBZgDVZ5+m
-        GUG/09fMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzEZhaek/3shuxX5NVeYAAAAASUVORK5CYII=
+        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
+        YxEAaeUgI8Jx4+4AAAAASUVORK5CYII=
 </value>
   </data>
 </root>

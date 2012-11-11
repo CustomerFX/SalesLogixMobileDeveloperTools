@@ -39,7 +39,7 @@
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(73)))), ((int)(((byte)(131)))));
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.pictureBox1);
@@ -56,7 +56,7 @@
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(176, 35);
 			this.label3.TabIndex = 9;
-			this.label3.Text = "Read blog posts and articles on developing for SalesLogix Mobile";
+			this.label3.Text = "Start a mobile website without IIS (See \'Start Mobile Website\' shortcuts)";
 			// 
 			// label2
 			// 
@@ -64,16 +64,16 @@
 			this.label2.ForeColor = System.Drawing.Color.White;
 			this.label2.Location = new System.Drawing.Point(95, 16);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(96, 21);
+			this.label2.Size = new System.Drawing.Size(155, 21);
 			this.label2.TabIndex = 8;
-			this.label2.Text = "Notification!";
+			this.label2.Text = "Start Mobile Website";
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(-7, -21);
+			this.pictureBox1.Location = new System.Drawing.Point(-15, -21);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(119, 130);
+			this.pictureBox1.Size = new System.Drawing.Size(130, 130);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 7;
 			this.pictureBox1.TabStop = false;

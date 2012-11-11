@@ -39,6 +39,8 @@
 			this.actionCreateDevEnv = new FX.Mobile.DeveloperTools.Controls.ActionButton();
 			this.actionGetInformation = new FX.Mobile.DeveloperTools.Controls.ActionButton();
 			this.actionNotification = new FX.Mobile.DeveloperTools.Controls.ActionButton();
+			this.actionStartMobile = new FX.Mobile.DeveloperTools.Controls.ActionButton();
+			this.startMobileWebsiteControl1 = new FX.Mobile.DeveloperTools.Content.StartMobileWebsiteControl();
 			((System.ComponentModel.ISupportInitialize)(this.iconApp)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -140,11 +142,36 @@
 			this.actionNotification.Visible = false;
 			this.actionNotification.ActionClicked += new System.EventHandler(this.actionNotification_ActionClicked);
 			// 
+			// actionStartMobile
+			// 
+			this.actionStartMobile.ActionButtonSize = FX.Mobile.DeveloperTools.Controls.ActionButtonSize.Normal;
+			this.actionStartMobile.HoverImage = ((System.Drawing.Image)(resources.GetObject("actionStartMobile.HoverImage")));
+			this.actionStartMobile.HoverImageUrl = null;
+			this.actionStartMobile.Location = new System.Drawing.Point(296, 184);
+			this.actionStartMobile.MainImage = ((System.Drawing.Image)(resources.GetObject("actionStartMobile.MainImage")));
+			this.actionStartMobile.MainImageUrl = null;
+			this.actionStartMobile.MaximumSize = new System.Drawing.Size(274, 85);
+			this.actionStartMobile.MinimumSize = new System.Drawing.Size(274, 85);
+			this.actionStartMobile.Name = "actionStartMobile";
+			this.actionStartMobile.Size = new System.Drawing.Size(274, 85);
+			this.actionStartMobile.TabIndex = 17;
+			this.actionStartMobile.ActionClicked += new System.EventHandler(this.actionStartMobile_ActionClicked);
+			// 
+			// startMobileWebsiteControl1
+			// 
+			this.startMobileWebsiteControl1.BackColor = System.Drawing.Color.White;
+			this.startMobileWebsiteControl1.Location = new System.Drawing.Point(698, 66);
+			this.startMobileWebsiteControl1.Name = "startMobileWebsiteControl1";
+			this.startMobileWebsiteControl1.Size = new System.Drawing.Size(622, 334);
+			this.startMobileWebsiteControl1.TabIndex = 18;
+			// 
 			// FormMain
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(698, 430);
+			this.Controls.Add(this.startMobileWebsiteControl1);
+			this.Controls.Add(this.actionStartMobile);
 			this.Controls.Add(this.actionNotification);
 			this.Controls.Add(this.actionGetInformation);
 			this.Controls.Add(this.actionCreateDevEnv);
@@ -165,6 +192,8 @@
 			this.Controls.SetChildIndex(this.actionCreateDevEnv, 0);
 			this.Controls.SetChildIndex(this.actionGetInformation, 0);
 			this.Controls.SetChildIndex(this.actionNotification, 0);
+			this.Controls.SetChildIndex(this.actionStartMobile, 0);
+			this.Controls.SetChildIndex(this.startMobileWebsiteControl1, 0);
 			((System.ComponentModel.ISupportInitialize)(this.iconApp)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -182,6 +211,8 @@
 		private Controls.ActionButton actionCreateDevEnv;
 		private Controls.ActionButton actionGetInformation;
 		private Controls.ActionButton actionNotification;
+		private Controls.ActionButton actionStartMobile;
+		private Content.StartMobileWebsiteControl startMobileWebsiteControl1;
 	}
 }
 

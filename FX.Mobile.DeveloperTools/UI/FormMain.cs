@@ -86,6 +86,11 @@ namespace FX.Mobile.DeveloperTools.UI
 			createDevEnvControl1.SlideOut();
 		}
 
+		private void actionStartMobile_ActionClicked(object sender, EventArgs e)
+		{
+			startMobileWebsiteControl1.SlideOut();
+		}
+
 		private void actionGetInformation_ActionClicked(object sender, EventArgs e)
 		{
 			try

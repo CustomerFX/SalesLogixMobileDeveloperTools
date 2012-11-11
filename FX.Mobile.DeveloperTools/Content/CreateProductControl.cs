@@ -68,7 +68,7 @@ namespace FX.Mobile.DeveloperTools.Content
 			}
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void buttonCreateProduct_Click(object sender, EventArgs e)
 		{
 			if (textProductName.Text == "") return;
 			if (textProductPath.Text == "") return;
@@ -77,7 +77,7 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			if (option12.Checked && deployment.Version != DeploymentVersion.Version12 && deployment.HasSDK)
 			{
-				MessageBox.Show("You've selected to create a version 1.2 product but the target environment is not a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show("You've selected to create a version 1.2 product but the target environment is a mobile 2.0 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 			if (option20.Checked && deployment.Version == DeploymentVersion.Version12 && deployment.HasSDK)
@@ -94,7 +94,7 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			progressBar1.Visible = true;
 			labelStatus.Visible = true;
-			button1.Enabled = false;
+			buttonCreateProduct.Enabled = false;
 			var _assembly = Assembly.GetExecutingAssembly();
 
 			string version = (option12.Checked ? "Mobile1_2" : "Mobile2_0");
@@ -175,7 +175,7 @@ namespace FX.Mobile.DeveloperTools.Content
 			labelStatus.Text = "";
 			progressBar1.Visible = false;
 			labelStatus.Visible = false;
-			button1.Enabled = true;
+			buttonCreateProduct.Enabled = true;
 
 			Application.DoEvents();
 			MessageBox.Show("Product '" + textProductName.Text + "' created and is ready for use.", "Product Created", MessageBoxButtons.OK, MessageBoxIcon.Information);

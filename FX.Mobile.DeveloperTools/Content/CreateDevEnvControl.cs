@@ -56,7 +56,7 @@ namespace FX.Mobile.DeveloperTools.Content
 		string version = "1.2";
 		string currFile = "";
 
-		private void button1_Click(object sender, EventArgs e)
+		private void buttonCreateDevEnv_Click(object sender, EventArgs e)
 		{
 			if (textProductPath.Text == string.Empty)
 				return;
@@ -74,7 +74,7 @@ namespace FX.Mobile.DeveloperTools.Content
 			progressBar1.Visible = true;
 			progressBar1.Maximum = (checkIncludeSample.Checked ? 6 : 5);
 			progressBar1.Value = 0;
-			button1.Enabled = false;
+			buttonCreateDevEnv.Enabled = false;
 
 			labelStatus.Text = "Initializing downloads...";
 			Application.DoEvents();
@@ -231,7 +231,7 @@ namespace FX.Mobile.DeveloperTools.Content
 				link.Save(Path.Combine(textProductPath.Text, link.Description + ".lnk"));
 			}
 
-			button1.Enabled = true;
+			buttonCreateDevEnv.Enabled = true;
 			progressBar1.Visible = false;
 			labelStatus.Visible = false;
 

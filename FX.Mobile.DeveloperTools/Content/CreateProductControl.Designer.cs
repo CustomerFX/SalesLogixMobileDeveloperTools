@@ -33,7 +33,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.option12 = new System.Windows.Forms.RadioButton();
 			this.option20 = new System.Windows.Forms.RadioButton();
-			this.button1 = new System.Windows.Forms.Button();
+			this.buttonCreateProduct = new System.Windows.Forms.Button();
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.label2 = new System.Windows.Forms.Label();
 			this.textProductName = new System.Windows.Forms.TextBox();
@@ -83,19 +83,19 @@
 			this.option20.Text = "2.0";
 			this.option20.UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// buttonCreateProduct
 			// 
-			this.button1.BackColor = System.Drawing.Color.SteelBlue;
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Location = new System.Drawing.Point(211, 206);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(154, 36);
-			this.button1.TabIndex = 3;
-			this.button1.Text = "Create Product";
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.buttonCreateProduct.BackColor = System.Drawing.Color.SteelBlue;
+			this.buttonCreateProduct.FlatAppearance.BorderSize = 0;
+			this.buttonCreateProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonCreateProduct.ForeColor = System.Drawing.Color.White;
+			this.buttonCreateProduct.Location = new System.Drawing.Point(211, 206);
+			this.buttonCreateProduct.Name = "buttonCreateProduct";
+			this.buttonCreateProduct.Size = new System.Drawing.Size(154, 36);
+			this.buttonCreateProduct.TabIndex = 3;
+			this.buttonCreateProduct.Text = "Create Product";
+			this.buttonCreateProduct.UseVisualStyleBackColor = false;
+			this.buttonCreateProduct.Click += new System.EventHandler(this.buttonCreateProduct_Click);
 			// 
 			// progressBar1
 			// 
@@ -228,7 +228,7 @@
 			this.Controls.Add(this.textProductName);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.progressBar1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.buttonCreateProduct);
 			this.Controls.Add(this.option20);
 			this.Controls.Add(this.option12);
 			this.Controls.Add(this.label1);
@@ -236,7 +236,7 @@
 			this.Controls.SetChildIndex(this.label1, 0);
 			this.Controls.SetChildIndex(this.option12, 0);
 			this.Controls.SetChildIndex(this.option20, 0);
-			this.Controls.SetChildIndex(this.button1, 0);
+			this.Controls.SetChildIndex(this.buttonCreateProduct, 0);
 			this.Controls.SetChildIndex(this.progressBar1, 0);
 			this.Controls.SetChildIndex(this.label2, 0);
 			this.Controls.SetChildIndex(this.textProductName, 0);
@@ -259,7 +259,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.RadioButton option12;
 		private System.Windows.Forms.RadioButton option20;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button buttonCreateProduct;
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textProductName;

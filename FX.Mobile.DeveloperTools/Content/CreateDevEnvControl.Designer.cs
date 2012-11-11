@@ -37,7 +37,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.labelStatus = new System.Windows.Forms.Label();
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
-			this.button1 = new System.Windows.Forms.Button();
+			this.buttonCreateDevEnv = new System.Windows.Forms.Button();
 			this.checkIncludeSample = new System.Windows.Forms.CheckBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.checkLaunch = new System.Windows.Forms.CheckBox();
@@ -131,19 +131,19 @@
 			this.progressBar1.TabIndex = 24;
 			this.progressBar1.Visible = false;
 			// 
-			// button1
+			// buttonCreateDevEnv
 			// 
-			this.button1.BackColor = System.Drawing.Color.SteelBlue;
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Location = new System.Drawing.Point(211, 202);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(193, 36);
-			this.button1.TabIndex = 23;
-			this.button1.Text = "Create Dev Environment";
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.buttonCreateDevEnv.BackColor = System.Drawing.Color.SteelBlue;
+			this.buttonCreateDevEnv.FlatAppearance.BorderSize = 0;
+			this.buttonCreateDevEnv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonCreateDevEnv.ForeColor = System.Drawing.Color.White;
+			this.buttonCreateDevEnv.Location = new System.Drawing.Point(211, 202);
+			this.buttonCreateDevEnv.Name = "buttonCreateDevEnv";
+			this.buttonCreateDevEnv.Size = new System.Drawing.Size(193, 36);
+			this.buttonCreateDevEnv.TabIndex = 23;
+			this.buttonCreateDevEnv.Text = "Create Dev Environment";
+			this.buttonCreateDevEnv.UseVisualStyleBackColor = false;
+			this.buttonCreateDevEnv.Click += new System.EventHandler(this.buttonCreateDevEnv_Click);
 			// 
 			// checkIncludeSample
 			// 
@@ -187,7 +187,7 @@
 			this.Controls.Add(this.checkIncludeSample);
 			this.Controls.Add(this.labelStatus);
 			this.Controls.Add(this.progressBar1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.buttonCreateDevEnv);
 			this.Controls.Add(this.buttonBrowse);
 			this.Controls.Add(this.textProductPath);
 			this.Controls.Add(this.label3);
@@ -201,7 +201,7 @@
 			this.Controls.SetChildIndex(this.label3, 0);
 			this.Controls.SetChildIndex(this.textProductPath, 0);
 			this.Controls.SetChildIndex(this.buttonBrowse, 0);
-			this.Controls.SetChildIndex(this.button1, 0);
+			this.Controls.SetChildIndex(this.buttonCreateDevEnv, 0);
 			this.Controls.SetChildIndex(this.progressBar1, 0);
 			this.Controls.SetChildIndex(this.labelStatus, 0);
 			this.Controls.SetChildIndex(this.checkIncludeSample, 0);
@@ -222,7 +222,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label labelStatus;
 		private System.Windows.Forms.ProgressBar progressBar1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button buttonCreateDevEnv;
 		private System.Windows.Forms.CheckBox checkIncludeSample;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.CheckBox checkLaunch;

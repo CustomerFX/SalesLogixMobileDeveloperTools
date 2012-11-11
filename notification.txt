@@ -1,0 +1,1 @@
+https://github.com/CustomerFX/SalesLogixMobileDeveloperTools/issues|http://cfxconnect.com/applications/SalesLogixMobileDeveloperTools/notifications/WelcomeNotificationTile.png|http://cfxconnect.com/applications/SalesLogixMobileDeveloperTools/notifications/WelcomeNotificationTile_Selected.png

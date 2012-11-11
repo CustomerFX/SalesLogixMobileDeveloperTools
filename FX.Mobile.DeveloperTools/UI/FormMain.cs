@@ -36,9 +36,9 @@
 #endregion
 
 using System;
-using System.Net;
 using System.Threading;
 using System.Windows.Forms;
+using FX.Mobile.DeveloperTools.Utility;
 
 namespace FX.Mobile.DeveloperTools.UI
 {
@@ -57,10 +57,8 @@ namespace FX.Mobile.DeveloperTools.UI
 
 		private void NotificationCheck()
 		{
-			var client = new WebClient();
-			string notification = client.DownloadString("http://cfxconnect.com/applications/SalesLogixMobileDeveloperTools/notification.txt");
-
-			if (string.IsNullOrEmpty(notification))
+			var notification = Notifications.Get();
+			if (notification == null)
 			{
 				this.SafeThreadAction(x => x.Controls["actionNotification"].Visible = false);
 			}
@@ -68,10 +66,9 @@ namespace FX.Mobile.DeveloperTools.UI
 			{
 				try
 				{
-					string[] notificationParts = notification.Split('|');
-					actionNotification.SafeThreadAction(x => x.Tag = notificationParts[0]);
-					actionNotification.SafeThreadAction(x => x.MainImageUrl = notificationParts[1]);
-					actionNotification.SafeThreadAction(x => x.HoverImageUrl = notificationParts[2]);
+					actionNotification.SafeThreadAction(x => x.Tag = notification.LinkAddress);
+					actionNotification.SafeThreadAction(x => x.MainImageUrl = notification.ImageMainAddress);
+					actionNotification.SafeThreadAction(x => x.HoverImageUrl = notification.ImageHoverAddress);
 
 					this.SafeThreadAction(x => x.Controls["actionNotification"].Visible = true);
 				}

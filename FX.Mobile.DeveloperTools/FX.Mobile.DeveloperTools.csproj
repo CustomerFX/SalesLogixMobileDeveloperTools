@@ -123,6 +123,7 @@
       <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ControlExtension.cs" />
+    <Compile Include="Model\AppNotification.cs" />
     <Compile Include="UI\FormLaunchWeb.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +151,8 @@
       <DependentUpon>MetroFormBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\FileIcon.cs" />
+    <Compile Include="Utility\Machine.cs" />
+    <Compile Include="Utility\Notifications.cs" />
     <Compile Include="Utility\ShellLink.cs" />
     <EmbeddedResource Include="Controls\ActionButton.resx">
       <DependentUpon>ActionButton.cs</DependentUpon>

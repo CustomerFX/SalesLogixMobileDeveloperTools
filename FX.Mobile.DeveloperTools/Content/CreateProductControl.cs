@@ -36,8 +36,6 @@
 #endregion
 
 using System;
-using System.IO;
-using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using FX.Mobile.DeveloperTools.Managers;
@@ -75,12 +73,12 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			var deployment = new DeploymentManager(textProductPath.Text);
 
-			if (option12.Checked && deployment.Version != DeploymentVersion.Version12 && deployment.HasSDK)
+			if (option12.Checked && deployment.Version != MobileVersion.Version12 && deployment.HasSDK)
 			{
 				MessageBox.Show("You've selected to create a version 1.2 product but the target environment is a mobile 2.0 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (option20.Checked && deployment.Version == DeploymentVersion.Version12 && deployment.HasSDK)
+			if (option20.Checked && deployment.Version == MobileVersion.Version12 && deployment.HasSDK)
 			{
 				MessageBox.Show("You've selected to create a version 2.0 product but the target environment is a mobile 1.2 system. Change the version or select a different location.", "Mobile Version Does Not Match", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -95,91 +93,43 @@ namespace FX.Mobile.DeveloperTools.Content
 			progressBar1.Visible = true;
 			labelStatus.Visible = true;
 			buttonCreateProduct.Enabled = false;
-			var _assembly = Assembly.GetExecutingAssembly();
 
-			string version = (option12.Checked ? "Mobile1_2" : "Mobile2_0");
-			string baseNamespace = "FX.Mobile.DeveloperTools.Templates" + "." + version + ".";
+			var product = new ProductManager(textProductPath.Text, option12.Checked ? MobileVersion.Version12 : MobileVersion.Version20);
+			product.ProductCreateProgress += product_ProductCreateProgress;
+			product.Create(textProductName.Text);
+		}
 
-			var resourceFiles = _assembly.GetManifestResourceNames();
-			progressBar1.Maximum = resourceFiles.Length + 1;
-			progressBar1.Value = 1;
-
-			labelStatus.Text = "Initializing product...";
-			Application.DoEvents();
-
-			foreach (var resourceFile in resourceFiles)
+		private void product_ProductCreateProgress(object sender, ProductCreateEventArgs e)
+		{
+			if (e.Initializing)
 			{
-				Thread.Sleep(100);
+				progressBar1.Maximum = e.Total;
+				progressBar1.Value = 0;
+				labelStatus.Text = "Initializing product...";
 				Application.DoEvents();
-
-				if (resourceFile.StartsWith(baseNamespace))
-				{
-					using (var reader = new StreamReader(_assembly.GetManifestResourceStream(resourceFile)))
-					{
-						var fileContents = reader.ReadToEnd();
-						fileContents = fileContents.Replace("[MODULE:Custom]", textProductName.Text);
-						fileContents = fileContents.Replace("[MODULE-LC:Custom]", textProductName.Text.ToLower());
-
-						var fileName = resourceFile.Replace(baseNamespace, "");
-
-						var filePath = Path.Combine(textProductPath.Text, @"products\");
-						if (!Directory.Exists(filePath))
-							Directory.CreateDirectory(filePath);
-
-						filePath = Path.Combine(filePath, "argos-" + textProductName.Text.ToLower());
-						if (!Directory.Exists(filePath))
-							Directory.CreateDirectory(filePath);
-
-						//check if sub directory
-						var parts = fileName.Split('.');
-						if (parts.Length > 2)
-						{
-							for (int i = 0; i < parts.Length - 2; i++)
-							{
-								filePath = Path.Combine(filePath, parts[i]);
-								if (!Directory.Exists(filePath))
-									Directory.CreateDirectory(filePath);
-
-								fileName = fileName.Replace(parts[i] + ".", "");
-							}
-						}
-
-						if (fileName == "build-custom.cmd")
-						{
-							fileName = fileName.Replace("custom", textProductName.Text.ToLower());
-							filePath = textProductPath.Text;
-						}
-						if (fileName == "index-dev-custom.html")
-						{
-							fileName = fileName.Replace("custom", textProductName.Text.ToLower());
-							filePath = Path.Combine(textProductPath.Text, @"products\argos-saleslogix\");
-							if (!Directory.Exists(filePath))
-								Directory.CreateDirectory(filePath);
-						}
-
-						labelStatus.Text = "Creating file " + fileName;
-						Application.DoEvents();
-
-						using (var writer = new StreamWriter(Path.Combine(filePath, fileName)))
-						{
-							writer.Write(fileContents);
-						}
-					}
-				}
-
-				progressBar1.Value++;
-				Application.DoEvents();
+				return;
 			}
 
-			progressBar1.Value = 0;
-			labelStatus.Text = "";
-			progressBar1.Visible = false;
-			labelStatus.Visible = false;
-			buttonCreateProduct.Enabled = true;
+			if (e.Complete)
+			{
+				progressBar1.Value = 0;
+				labelStatus.Text = string.Empty;
 
+				progressBar1.Visible = false;
+				labelStatus.Visible = false;
+				buttonCreateProduct.Enabled = true;
+
+				Application.DoEvents();
+				MessageBox.Show("Product '" + textProductName.Text + "' created and is ready for use.", "Product Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				this.Back();
+
+				return;
+			}
+
+			labelStatus.Text = "Creating file " + e.CurrentFile;
+			progressBar1.Value = e.Count;
 			Application.DoEvents();
-			MessageBox.Show("Product '" + textProductName.Text + "' created and is ready for use.", "Product Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			this.Back();
+			Thread.Sleep(200);
 		}
 	}
 }

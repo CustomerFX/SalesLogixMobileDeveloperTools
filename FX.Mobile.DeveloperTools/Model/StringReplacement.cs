@@ -39,11 +39,9 @@ using System;
 
 namespace FX.Mobile.DeveloperTools.Model
 {
-	public class AppNotification
+	public class StringReplacement
 	{
-		public string ID { get; set; }
-		public string LinkAddress { get; set; }
-		public string ImageMainAddress { get; set; }
-		public string ImageHoverAddress { get; set; }
+		public string Pattern { get; set; }
+		public string Value { get; set; }
 	}
 }

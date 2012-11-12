@@ -36,14 +36,36 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using FX.Mobile.DeveloperTools.Model;
 
-namespace FX.Mobile.DeveloperTools.Model
+namespace FX.Mobile.DeveloperTools.Managers
 {
-	public class AppNotification
+	public class ResourceFileManager
 	{
-		public string ID { get; set; }
-		public string LinkAddress { get; set; }
-		public string ImageMainAddress { get; set; }
-		public string ImageHoverAddress { get; set; }
+		public string[] GetFileList()
+		{
+			return Assembly.GetExecutingAssembly().GetManifestResourceNames();
+		}
+
+		public string GetFile(string ResourceName)
+		{
+			using (var reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(ResourceName)))
+			{
+				return reader.ReadToEnd();
+			}
+		}
+
+		public string GetFile(string ResourceName, List<StringReplacement> Replacements)
+		{
+			string fileContents = this.GetFile(ResourceName);
+
+			foreach (var replacement in Replacements)
+				fileContents.Replace(replacement.Pattern, replacement.Value);
+
+			return fileContents;
+		}
 	}
 }

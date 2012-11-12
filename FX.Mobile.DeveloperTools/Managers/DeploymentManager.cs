@@ -41,12 +41,6 @@ using System.IO;
 
 namespace FX.Mobile.DeveloperTools.Managers
 {
-	public enum DeploymentVersion
-	{
-		Version12,
-		Version20
-	}
-
 	public class DeploymentManager
 	{
 		public DeploymentManager(string DeploymentPath)
@@ -80,11 +74,11 @@ namespace FX.Mobile.DeveloperTools.Managers
 			}
 		}
 
-		public DeploymentVersion Version
+		public MobileVersion Version
 		{
 			get
 			{
-				return (Directory.Exists(Path.Combine(DeploymentPath, @"argos-sdk\libraries\ext")) ? DeploymentVersion.Version12 : DeploymentVersion.Version20);
+				return (Directory.Exists(Path.Combine(DeploymentPath, @"argos-sdk\libraries\ext")) ? MobileVersion.Version12 : MobileVersion.Version20);
 			}
 		}
 

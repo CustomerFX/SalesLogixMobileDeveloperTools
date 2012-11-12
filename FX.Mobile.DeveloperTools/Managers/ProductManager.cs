@@ -45,6 +45,8 @@ namespace FX.Mobile.DeveloperTools.Managers
 	public class ProductManager
 	{
 		public event EventHandler<ProductCreateEventArgs> ProductCreateProgress;
+		public event EventHandler<ProductCreateEventArgs> ProductCreateInitializing;
+		public event EventHandler<ProductCreateEventArgs> ProductCreateComplete;
 
 		public ProductManager(string MobilePath, MobileVersion Version)
 		{
@@ -60,8 +62,8 @@ namespace FX.Mobile.DeveloperTools.Managers
 			string version = GetTemplateVersion();
 			string baseNamespace = "FX.Mobile.DeveloperTools.Templates" + "." + version + ".";
 
-			var resource = new ResourceFileManager();
-			var resourceFiles = resource.GetFileList();
+			var template = new TemplateManager();
+			var templateFiles = template.GetTemplateList();
 
 			var replacements = new List<StringReplacement>();
 			replacements.Add(new StringReplacement { Pattern = "[MODULE:Custom]", Value = ProductName });
@@ -69,21 +71,21 @@ namespace FX.Mobile.DeveloperTools.Managers
 
 			int total = 0;
 			int count = 1;
-			foreach (var resourceFile in resourceFiles)
+			foreach (var templateFile in templateFiles)
 			{
-				if (resourceFile.StartsWith(baseNamespace))
+				if (templateFile.StartsWith(baseNamespace))
 					total++;
 			}
 
-			if (ProductCreateProgress != null)
-				ProductCreateProgress(this, new ProductCreateEventArgs { Initializing = true, Complete = false, Count = 0, CurrentFile = string.Empty, Total = total });
+			if (ProductCreateInitializing != null)
+				ProductCreateInitializing(this, new ProductCreateEventArgs { Count = 0, CurrentFile = string.Empty, Total = total });
 
-			foreach (var resourceFile in resourceFiles)
+			foreach (var templateFile in templateFiles)
 			{
-				if (resourceFile.StartsWith(baseNamespace))
+				if (templateFile.StartsWith(baseNamespace))
 				{
-					var fileContents = resource.GetFile(resourceFile, replacements);
-					var fileName = resourceFile.Replace(baseNamespace, "");
+					var fileContents = template.GetTemplate(templateFile, replacements);
+					var fileName = templateFile.Replace(baseNamespace, "");
 
 					var filePath = Path.Combine(MobilePath, @"products\");
 					if (!Directory.Exists(filePath))
@@ -121,7 +123,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 					}
 
 					if (ProductCreateProgress != null)
-						ProductCreateProgress(this, new ProductCreateEventArgs { Initializing = false, Complete = false, Count = count, CurrentFile = fileName, Total = total });
+						ProductCreateProgress(this, new ProductCreateEventArgs { Count = count, CurrentFile = fileName, Total = total });
 
 					count++;
 
@@ -132,8 +134,8 @@ namespace FX.Mobile.DeveloperTools.Managers
 				}
 			}
 
-			if (ProductCreateProgress != null)
-				ProductCreateProgress(this, new ProductCreateEventArgs { Initializing = false, Complete = true, Count = count, CurrentFile = string.Empty, Total = total });
+			if (ProductCreateComplete != null)
+				ProductCreateComplete(this, new ProductCreateEventArgs { Count = count, CurrentFile = string.Empty, Total = total });
 		}
 
 		private string GetTemplateVersion()
@@ -155,7 +157,5 @@ namespace FX.Mobile.DeveloperTools.Managers
 		public string CurrentFile { get; set; }
 		public int Count { get; set; }
 		public int Total { get; set; }
-		public bool Complete { get; set; }
-		public bool Initializing { get; set; }
 	}
 }

@@ -96,40 +96,39 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			var product = new ProductManager(textProductPath.Text, option12.Checked ? MobileVersion.Version12 : MobileVersion.Version20);
 			product.ProductCreateProgress += product_ProductCreateProgress;
+			product.ProductCreateInitializing += product_ProductCreateInitializing;
+			product.ProductCreateComplete += product_ProductCreateComplete;
 			product.Create(textProductName.Text);
+		}
+
+		private void product_ProductCreateInitializing(object sender, ProductCreateEventArgs e)
+		{
+			progressBar1.Maximum = e.Total;
+			progressBar1.Value = 0;
+			labelStatus.Text = "Initializing product...";
+			Application.DoEvents();
 		}
 
 		private void product_ProductCreateProgress(object sender, ProductCreateEventArgs e)
 		{
-			if (e.Initializing)
-			{
-				progressBar1.Maximum = e.Total;
-				progressBar1.Value = 0;
-				labelStatus.Text = "Initializing product...";
-				Application.DoEvents();
-				return;
-			}
-
-			if (e.Complete)
-			{
-				progressBar1.Value = 0;
-				labelStatus.Text = string.Empty;
-
-				progressBar1.Visible = false;
-				labelStatus.Visible = false;
-				buttonCreateProduct.Enabled = true;
-
-				Application.DoEvents();
-				MessageBox.Show("Product '" + textProductName.Text + "' created and is ready for use.", "Product Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				this.Back();
-
-				return;
-			}
-
 			labelStatus.Text = "Creating file " + e.CurrentFile;
 			progressBar1.Value = e.Count;
 			Application.DoEvents();
 			Thread.Sleep(200);
+		}
+
+		private void product_ProductCreateComplete(object sender, ProductCreateEventArgs e)
+		{
+			progressBar1.Value = 0;
+			labelStatus.Text = string.Empty;
+
+			progressBar1.Visible = false;
+			labelStatus.Visible = false;
+			buttonCreateProduct.Enabled = true;
+
+			Application.DoEvents();
+			MessageBox.Show("Product '" + textProductName.Text + "' created and is ready for use.", "Product Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			this.Back();
 		}
 	}
 }

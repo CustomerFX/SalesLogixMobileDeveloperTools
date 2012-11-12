@@ -43,14 +43,14 @@ using FX.Mobile.DeveloperTools.Model;
 
 namespace FX.Mobile.DeveloperTools.Managers
 {
-	public class ResourceFileManager
+	public class TemplateManager
 	{
-		public string[] GetFileList()
+		public string[] GetTemplateList()
 		{
 			return Assembly.GetExecutingAssembly().GetManifestResourceNames();
 		}
 
-		public string GetFile(string ResourceName)
+		public string GetTemplate(string ResourceName)
 		{
 			using (var reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(ResourceName)))
 			{
@@ -58,9 +58,9 @@ namespace FX.Mobile.DeveloperTools.Managers
 			}
 		}
 
-		public string GetFile(string ResourceName, List<StringReplacement> Replacements)
+		public string GetTemplate(string ResourceName, List<StringReplacement> Replacements)
 		{
-			string fileContents = this.GetFile(ResourceName);
+			string fileContents = this.GetTemplate(ResourceName);
 
 			foreach (var replacement in Replacements)
 				fileContents.Replace(replacement.Pattern, replacement.Value);

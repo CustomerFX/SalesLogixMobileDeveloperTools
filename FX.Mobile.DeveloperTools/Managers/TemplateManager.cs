@@ -63,7 +63,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 			string fileContents = this.GetTemplate(ResourceName);
 
 			foreach (var replacement in Replacements)
-				fileContents.Replace(replacement.Pattern, replacement.Value);
+				fileContents = fileContents.Replace(replacement.Pattern, replacement.Value);
 
 			return fileContents;
 		}

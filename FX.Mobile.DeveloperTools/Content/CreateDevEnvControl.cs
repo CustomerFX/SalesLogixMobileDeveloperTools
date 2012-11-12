@@ -36,13 +36,8 @@
 #endregion
 
 using System;
-using System.ComponentModel;
-using System.IO;
-using System.Net;
 using System.Windows.Forms;
 using FX.Mobile.DeveloperTools.Managers;
-using FX.Mobile.DeveloperTools.Utility;
-using Ionic.Zip;
 
 namespace FX.Mobile.DeveloperTools.Content
 {

@@ -65,10 +65,6 @@ namespace FX.Mobile.DeveloperTools.Managers
 			var template = new TemplateManager();
 			var templateFiles = template.GetTemplateList();
 
-			var replacements = new List<StringReplacement>();
-			replacements.Add(new StringReplacement { Pattern = "[MODULE:Custom]", Value = ProductName });
-			replacements.Add(new StringReplacement { Pattern = "[MODULE-LC:Custom]", Value = ProductName.ToLower() });
-
 			int total = 0;
 			int count = 1;
 			foreach (var templateFile in templateFiles)
@@ -79,6 +75,10 @@ namespace FX.Mobile.DeveloperTools.Managers
 
 			if (ProductCreateInitializing != null)
 				ProductCreateInitializing(this, new ProductCreateEventArgs { Count = 0, CurrentFile = string.Empty, Total = total });
+
+			var replacements = new List<StringReplacement>();
+			replacements.Add(new StringReplacement { Pattern = "[MODULE:Custom]", Value = ProductName });
+			replacements.Add(new StringReplacement { Pattern = "[MODULE-LC:Custom]", Value = ProductName.ToLower() });
 
 			foreach (var templateFile in templateFiles)
 			{

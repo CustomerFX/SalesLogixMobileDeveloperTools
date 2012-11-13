@@ -24,11 +24,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://www.cfxconnect.com/applications/SalesLogixMobileDeveloperTools/</InstallUrl>
     <SupportUrl>http://customerfx.com</SupportUrl>
-    <ProductName>SalesLogix Mobile Developer Tools</ProductName>
+    <ProductName>SalesLogix Mobile Developer Toolkit</ProductName>
     <PublisherName>Customer FX Corporation</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

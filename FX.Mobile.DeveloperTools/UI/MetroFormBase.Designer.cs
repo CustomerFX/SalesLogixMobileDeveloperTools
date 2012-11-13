@@ -81,9 +81,9 @@
 			this.labelTitle.ForeColor = System.Drawing.Color.DimGray;
 			this.labelTitle.Location = new System.Drawing.Point(64, 16);
 			this.labelTitle.Name = "labelTitle";
-			this.labelTitle.Size = new System.Drawing.Size(432, 40);
+			this.labelTitle.Size = new System.Drawing.Size(449, 40);
 			this.labelTitle.TabIndex = 8;
-			this.labelTitle.Text = "SalesLogix Mobile Developer Tools";
+			this.labelTitle.Text = "SalesLogix Mobile Developer Toolkit";
 			// 
 			// buttonMinimize
 			// 

@@ -33,8 +33,8 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.panelProductList = new System.Windows.Forms.Panel();
 			this.panelError = new System.Windows.Forms.Panel();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.labelGetIisExpress = new System.Windows.Forms.Label();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -67,8 +67,9 @@
 			// 
 			// panelError
 			// 
-			this.panelError.Controls.Add(this.pictureBox2);
+			this.panelError.BackColor = System.Drawing.Color.White;
 			this.panelError.Controls.Add(this.labelGetIisExpress);
+			this.panelError.Controls.Add(this.pictureBox2);
 			this.panelError.Controls.Add(this.label3);
 			this.panelError.Controls.Add(this.label2);
 			this.panelError.Controls.Add(this.pictureBox1);
@@ -78,34 +79,37 @@
 			this.panelError.TabIndex = 14;
 			this.panelError.Visible = false;
 			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(182, 235);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(16, 16);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBox2.TabIndex = 4;
-			this.pictureBox2.TabStop = false;
-			// 
 			// labelGetIisExpress
 			// 
 			this.labelGetIisExpress.AutoSize = true;
 			this.labelGetIisExpress.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.labelGetIisExpress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline);
 			this.labelGetIisExpress.ForeColor = System.Drawing.Color.SteelBlue;
-			this.labelGetIisExpress.Location = new System.Drawing.Point(203, 232);
+			this.labelGetIisExpress.Location = new System.Drawing.Point(193, 268);
+			this.labelGetIisExpress.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
 			this.labelGetIisExpress.Name = "labelGetIisExpress";
 			this.labelGetIisExpress.Size = new System.Drawing.Size(275, 21);
 			this.labelGetIisExpress.TabIndex = 3;
 			this.labelGetIisExpress.Text = "Click to download Micosoft IIS Express";
 			this.labelGetIisExpress.Click += new System.EventHandler(this.labelGetIisExpress_Click);
 			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(410, 614);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox2.TabIndex = 4;
+			this.pictureBox2.TabStop = false;
+			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(86, 126);
+			this.label3.Location = new System.Drawing.Point(86, 155);
+			this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(497, 77);
+			this.label3.Size = new System.Drawing.Size(469, 82);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "IIS Express is required to launch websites without using IIS.  You can install II" +
     "S Express from Microsoft or configure IIS for this development environment.";
@@ -114,18 +118,20 @@
 			// 
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-			this.label2.Location = new System.Drawing.Point(176, 39);
+			this.label2.Location = new System.Drawing.Point(157, 52);
+			this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(407, 70);
+			this.label2.Size = new System.Drawing.Size(443, 64);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "IIS Express does not appear to be installed";
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(90, 29);
+			this.pictureBox1.Location = new System.Drawing.Point(90, 52);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(80, 80);
+			this.pictureBox1.Size = new System.Drawing.Size(64, 64);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -170,8 +176,8 @@
 			// FormLaunchWeb
 			// 
 			this.ClientSize = new System.Drawing.Size(698, 430);
-			this.Controls.Add(this.labelPath);
 			this.Controls.Add(this.panelError);
+			this.Controls.Add(this.labelPath);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.textPort);
 			this.Controls.Add(this.label4);
@@ -189,8 +195,8 @@
 			this.Controls.SetChildIndex(this.label4, 0);
 			this.Controls.SetChildIndex(this.textPort, 0);
 			this.Controls.SetChildIndex(this.label5, 0);
-			this.Controls.SetChildIndex(this.panelError, 0);
 			this.Controls.SetChildIndex(this.labelPath, 0);
+			this.Controls.SetChildIndex(this.panelError, 0);
 			this.panelError.ResumeLayout(false);
 			this.panelError.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

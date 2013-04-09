@@ -137,6 +137,7 @@
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Managers\TemplateManager.cs" />
     <Compile Include="Model\AppNotification.cs" />
+    <Compile Include="Model\ResourcePackage.cs" />
     <Compile Include="Model\StringReplacement.cs" />
     <Compile Include="UI\FormLaunchWeb.cs">
       <SubType>Form</SubType>

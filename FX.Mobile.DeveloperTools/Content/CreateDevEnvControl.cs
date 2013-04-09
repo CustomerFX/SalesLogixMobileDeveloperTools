@@ -97,7 +97,7 @@ namespace FX.Mobile.DeveloperTools.Content
 
 		private void mobileResources_ResourceInstallProgress(object sender, MobileResourceInstallEventArgs e)
 		{
-			string status = string.Format("{0} {1}", e.Action, e.CurrentFile).Trim();
+			string status = string.Format("{0} {1}", e.Action, e.CurrentPackage).Trim();
 			switch (e.Action)
 			{
 				case "Downloading":

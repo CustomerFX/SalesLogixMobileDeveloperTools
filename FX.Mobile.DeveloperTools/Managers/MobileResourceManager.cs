@@ -1,37 +1,37 @@
 ﻿#region License Information
 /* 
 
-    SalesLogix Mobile Developer Tools
-    Copyright (C) 2012  Customer FX Corporation - http://customerfx.com/
+	SalesLogix Mobile Developer Tools
+	Copyright (C) 2012  Customer FX Corporation - http://customerfx.com/
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either GetResourceVersion() 3 of the License, or
-    (at your option) any later GetResourceVersion.
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either GetResourceVersion() 3 of the License, or
+	(at your option) any later GetResourceVersion.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
 	ADDITIONAL TERMS: 
 	The "Customer FX" link to customerfx.com on the main form must 
 	remain visible and in-tact on any forks or use of this source code.
 
-    Contact Information:
-    
-    Ryan Farley 
-    Customer FX Corporation
-    http://customerfx.com/
-    2324 University Avenue West, Suite 115
-    Saint Paul, Minnesota 55114
-    Tel: 651.646.7777  Fax: 651.846.5185
-    
-    This copyright must remain intact
-    
+	Contact Information:
+	
+	Ryan Farley 
+	Customer FX Corporation
+	http://customerfx.com/
+	2324 University Avenue West, Suite 115
+	Saint Paul, Minnesota 55114
+	Tel: 651.646.7777  Fax: 651.846.5185
+	
+	This copyright must remain intact
+	
 */
 #endregion
 
@@ -41,6 +41,8 @@ using System.IO;
 using System.Net;
 using Ionic.Zip;
 using FX.Mobile.DeveloperTools.Utility;
+using FX.Mobile.DeveloperTools.Model;
+using System.Collections.Generic;
 
 namespace FX.Mobile.DeveloperTools.Managers
 {
@@ -60,96 +62,106 @@ namespace FX.Mobile.DeveloperTools.Managers
 		public MobileVersion Version { get; set; }
 		public string MobilePath { get; set; }
 		public bool IncludeArgosSample { get; set; }
+		public bool IncludeArgos754Compatability { get; set; }
 
-		private string CurrentFile { get; set; }
+		private Queue<ResourcePackage> _packages;
+
+		private ResourcePackage CurrentPackage { get; set; }
+		private int CurrentStep { get; set; }
 
 		public void Install()
 		{
-			if (ResourceInstallInitializing != null)
-				ResourceInstallInitializing(this, new MobileResourceInstallEventArgs { Action = "Initializing downloads", StepNumber = 0, StepTotal = (this.IncludeArgosSample ? 6 : 5) });
+			_packages = new Queue<ResourcePackage>();
 
-			CurrentFile = "argos-sdk " + GetResourceVersion();
-			var client = new WebClient();
-			client.DownloadProgressChanged += webClient_DownloadProgressChanged;
-			client.DownloadFileCompleted += webClient_DownloadFileCompleted;
-			client.DownloadFileAsync(new Uri("https://github.com/Sage/argos-sdk/archive/" + GetResourceVersion() + ".zip"), Path.Combine(MobilePath, "argos-sdk-" + GetResourceVersion() + ".zip"));
-		}
+			_packages.Enqueue(new ResourcePackage
+			{
+				Name = "argos-sdk " + GetResourceVersion(),
+				File = "argos-sdk-" + GetResourceVersion() + ".zip",
+				Path = Path.Combine(MobilePath, "argos-sdk"),
+				Account = "Sage",
+				Repository = "argos-sdk",
+				Archive = GetResourceVersion() + ".zip",
+				PostAction = () =>
+				{
+					if (!Directory.Exists(Path.Combine(MobilePath, "products")))
+						Directory.CreateDirectory(Path.Combine(MobilePath, "products"));
+				}
+			});
 
-		private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-		{
-			if (ResourceInstallStepUpdate != null)
-				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = 1 });
-
-			CurrentFile = "argos-saleslogix " + GetResourceVersion();
-
-			var client = new WebClient();
-			client.DownloadProgressChanged += webClient_DownloadProgressChanged;
-			if (this.IncludeArgosSample)
-				client.DownloadFileCompleted += webClient_DownloadFileCompletedSample;
-			else
-				client.DownloadFileCompleted += webClient_DownloadFileCompletedContinue;
-			client.DownloadFileAsync(new Uri("https://github.com/SageSalesLogix/argos-saleslogix/archive/" + GetResourceVersion() + ".zip"), Path.Combine(MobilePath, "argos-saleslogix-" + GetResourceVersion() + ".zip"));
-		}
-
-		private void webClient_DownloadFileCompletedSample(object sender, AsyncCompletedEventArgs e)
-		{
-			if (ResourceInstallStepUpdate != null)
-				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = 2 });
-
-			CurrentFile = "argos-sample " + GetResourceVersion();
-
-			var client = new WebClient();
-			client.DownloadProgressChanged += webClient_DownloadProgressChanged;
-			client.DownloadFileCompleted += webClient_DownloadFileCompletedContinue;
-			client.DownloadFileAsync(new Uri("https://github.com/SageSalesLogix/argos-sample/archive/" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"), Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"));
-		}
-
-		private void webClient_DownloadFileCompletedContinue(object sender, AsyncCompletedEventArgs e)
-		{
-			if (ResourceInstallStepUpdate != null)
-				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = 3 });
-
-			CurrentFile = "argos-sdk " + GetResourceVersion();
-
-			if (ResourceInstallProgress != null)
-				ResourceInstallProgress(this, new MobileResourceInstallEventArgs { Action = "Extracting", CurrentFile = this.CurrentFile, ProgressCurrentFile = 0, ProgressTotalFiles = 0 });
-
-			ExtractResource(Path.Combine(MobilePath, "argos-sdk-" + GetResourceVersion() + ".zip"), Path.Combine(MobilePath, "argos-sdk"));
-
-			if (ResourceInstallStepUpdate != null)
-				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = 4 });
-
-			if (!Directory.Exists(Path.Combine(MobilePath, "products")))
-				Directory.CreateDirectory(Path.Combine(MobilePath, "products"));
-
-			CurrentFile = "argos-saleslogix " + GetResourceVersion();
-			ExtractResource(Path.Combine(MobilePath, "argos-saleslogix-" + GetResourceVersion() + ".zip"), Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix"));
-
-			if (ResourceInstallStepUpdate != null)
-				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = 5 });
+			_packages.Enqueue(new ResourcePackage
+			{
+				Name = "argos-saleslogix " + GetResourceVersion(),
+				File = "argos-saleslogix-" + GetResourceVersion() + ".zip",
+				Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix"),
+				Account = "SageSalesLogix",
+				Repository = "argos-saleslogix",
+				Archive = GetResourceVersion() + ".zip",
+			});
 
 			if (IncludeArgosSample)
 			{
-				CurrentFile = "argos-sample " + GetResourceVersion();
-				ExtractResource(Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"), Path.Combine(Path.Combine(MobilePath, "products"), "argos-sample"));
-
-				File.Move(Path.Combine(MobilePath, @"products\argos-sample\index-dev-sample.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-sample.html"));
-
-				if (ResourceInstallStepUpdate != null)
-					ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = 6 });
+				_packages.Enqueue(new ResourcePackage
+				{
+					Name = "argos-sample " + GetResourceVersion(),
+					File = Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
+					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-sample"),
+					Account = "SageSalesLogix",
+					Repository = "argos-sample",
+					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip",
+					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-sample\index-dev-sample.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-sample.html"))
+				});
 			}
 
-			CreateReadme();
-			CreateStartShortcut();
+			CurrentStep = 0;
 
-			if (ResourceInstallComplete != null)
-				ResourceInstallComplete(this, new MobileResourceInstallEventArgs());
+			if (ResourceInstallInitializing != null)
+				ResourceInstallInitializing(this, new MobileResourceInstallEventArgs { Action = "Initializing downloads", StepNumber = CurrentStep, StepTotal = (_packages.Count * 2) });
+
+			InstallPackage(_packages.Dequeue());
 		}
 
-		private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+		private void InstallPackage(ResourcePackage package)
+		{
+			CurrentPackage = package;
+
+			if (ResourceInstallStepUpdate != null)
+				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = CurrentStep++ });
+
+			var client = new WebClient();
+			client.DownloadProgressChanged += ResourceDownloadProgressChanged;
+			client.DownloadFileCompleted += ResourceDownloadFileCompleted;
+			client.DownloadFileAsync(new Uri(string.Format("https://github.com/{0}/{1}/archive/{2}", package.Account, package.Repository, package.Archive)), Path.Combine(MobilePath, package.File));
+		}
+
+		private void ResourceDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
 		{
 			if (ResourceInstallProgress != null)
-				ResourceInstallProgress(this, new MobileResourceInstallEventArgs { Action = "Downloading", CurrentFile = this.CurrentFile, ProgressPercentage = e.ProgressPercentage });
+				ResourceInstallProgress(this, new MobileResourceInstallEventArgs { Action = "Downloading", CurrentPackage = CurrentPackage.Name, ProgressPercentage = e.ProgressPercentage });
+		}
+
+		private void ResourceDownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+		{
+			if (ResourceInstallStepUpdate != null)
+				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = CurrentStep++ });
+
+			if (ResourceInstallProgress != null)
+				ResourceInstallProgress(this, new MobileResourceInstallEventArgs { Action = "Extracting", CurrentPackage = CurrentPackage.Name, ProgressCurrentFile = 0, ProgressTotalFiles = 0 });
+
+			ExtractResource(Path.Combine(MobilePath, CurrentPackage.File), Path.Combine(MobilePath, CurrentPackage.Path));
+
+			if (CurrentPackage.PostAction != null)
+				CurrentPackage.PostAction();
+
+			if (_packages.Count > 0)
+				InstallPackage(_packages.Dequeue());
+			else
+			{
+				CreateReadme();
+				CreateStartShortcut();
+
+				if (ResourceInstallComplete != null)
+					ResourceInstallComplete(this, new MobileResourceInstallEventArgs());
+			}
 		}
 
 		private void ExtractResource(string ResourceFile, string Location)
@@ -164,7 +176,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 					file.Extract(MobilePath, ExtractExistingFileAction.OverwriteSilently);
 
 					if (ResourceInstallProgress != null)
-						ResourceInstallProgress(this, new MobileResourceInstallEventArgs { Action = "Extracting", CurrentFile = this.CurrentFile, ProgressCurrentFile = count, ProgressTotalFiles = total });
+						ResourceInstallProgress(this, new MobileResourceInstallEventArgs { Action = "Extracting", CurrentPackage = CurrentPackage.Name, ProgressCurrentFile = count, ProgressTotalFiles = total });
 
 					count++;
 				}
@@ -226,7 +238,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 
 	public class MobileResourceInstallEventArgs : EventArgs
 	{
-		public string CurrentFile { get; set; }
+		public string CurrentPackage { get; set; }
 		public string Action { get; set; }
 		public int ProgressPercentage { get; set; }
 		public int ProgressCurrentFile { get; set; }

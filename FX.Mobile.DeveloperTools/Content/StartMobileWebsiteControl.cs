@@ -36,7 +36,6 @@
 #endregion
 
 using System;
-using System.IO;
 using System.Windows.Forms;
 using FX.Mobile.DeveloperTools.Controls;
 using FX.Mobile.DeveloperTools.Managers;

@@ -51,7 +51,7 @@ namespace FX.Mobile.DeveloperTools.UI
 			WireControlMove(createDevEnvControl1);
 			WireControlMove(createProductControl1);
 
-			var thread = new Thread(new ThreadStart(this.NotificationCheck));
+			var thread = new Thread(new ThreadStart(NotificationCheck));
 			thread.Start();
 		}
 

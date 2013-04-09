@@ -62,24 +62,24 @@
 			// option12
 			// 
 			this.option12.AutoSize = true;
-			this.option12.Checked = true;
 			this.option12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option12.Location = new System.Drawing.Point(211, 46);
 			this.option12.Name = "option12";
 			this.option12.Size = new System.Drawing.Size(39, 17);
 			this.option12.TabIndex = 1;
-			this.option12.TabStop = true;
 			this.option12.Text = "1.2";
 			this.option12.UseVisualStyleBackColor = true;
 			// 
 			// option20
 			// 
 			this.option20.AutoSize = true;
+			this.option20.Checked = true;
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option20.Location = new System.Drawing.Point(266, 46);
 			this.option20.Name = "option20";
 			this.option20.Size = new System.Drawing.Size(39, 17);
 			this.option20.TabIndex = 2;
+			this.option20.TabStop = true;
 			this.option20.Text = "2.0";
 			this.option20.UseVisualStyleBackColor = true;
 			// 

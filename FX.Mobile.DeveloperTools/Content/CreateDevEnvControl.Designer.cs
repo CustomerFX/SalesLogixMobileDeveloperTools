@@ -41,6 +41,7 @@
 			this.checkIncludeSample = new System.Windows.Forms.CheckBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.checkLaunch = new System.Windows.Forms.CheckBox();
+			this.checkIncludeBackCompat = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// buttonBrowse
@@ -81,24 +82,24 @@
 			// option20
 			// 
 			this.option20.AutoSize = true;
+			this.option20.Checked = true;
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option20.Location = new System.Drawing.Point(266, 46);
 			this.option20.Name = "option20";
 			this.option20.Size = new System.Drawing.Size(39, 17);
 			this.option20.TabIndex = 16;
+			this.option20.TabStop = true;
 			this.option20.Text = "2.0";
 			this.option20.UseVisualStyleBackColor = true;
 			// 
 			// option12
 			// 
 			this.option12.AutoSize = true;
-			this.option12.Checked = true;
 			this.option12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option12.Location = new System.Drawing.Point(211, 46);
 			this.option12.Name = "option12";
 			this.option12.Size = new System.Drawing.Size(39, 17);
 			this.option12.TabIndex = 15;
-			this.option12.TabStop = true;
 			this.option12.Text = "1.2";
 			this.option12.UseVisualStyleBackColor = true;
 			// 
@@ -178,10 +179,22 @@
 			this.checkLaunch.Text = "Launch website after environment is created?";
 			this.checkLaunch.UseVisualStyleBackColor = true;
 			// 
+			// checkIncludeBackCompat
+			// 
+			this.checkIncludeBackCompat.AutoSize = true;
+			this.checkIncludeBackCompat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.checkIncludeBackCompat.Location = new System.Drawing.Point(85, 151);
+			this.checkIncludeBackCompat.Name = "checkIncludeBackCompat";
+			this.checkIncludeBackCompat.Size = new System.Drawing.Size(215, 17);
+			this.checkIncludeBackCompat.TabIndex = 29;
+			this.checkIncludeBackCompat.Text = "Include backwards compatibility for 7.5.4";
+			this.checkIncludeBackCompat.UseVisualStyleBackColor = true;
+			// 
 			// CreateDevEnvControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.checkIncludeBackCompat);
 			this.Controls.Add(this.checkLaunch);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.checkIncludeSample);
@@ -207,6 +220,7 @@
 			this.Controls.SetChildIndex(this.checkIncludeSample, 0);
 			this.Controls.SetChildIndex(this.label5, 0);
 			this.Controls.SetChildIndex(this.checkLaunch, 0);
+			this.Controls.SetChildIndex(this.checkIncludeBackCompat, 0);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -226,5 +240,6 @@
 		private System.Windows.Forms.CheckBox checkIncludeSample;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.CheckBox checkLaunch;
+		private System.Windows.Forms.CheckBox checkIncludeBackCompat;
 	}
 }

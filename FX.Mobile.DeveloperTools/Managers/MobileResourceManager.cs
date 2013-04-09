@@ -112,6 +112,20 @@ namespace FX.Mobile.DeveloperTools.Managers
 				});
 			}
 
+			if (IncludeArgos754Compatability)
+			{
+				_packages.Enqueue(new ResourcePackage
+				{
+					Name = "argos-saleslogix-20_for_754 " + GetResourceVersion(),
+					File = Path.Combine(MobilePath, "argos-saleslogix-20_for_754-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
+					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix-20_for_754"),
+					Account = "SageSalesLogix",
+					Repository = "argos-saleslogix-20_for_754",
+					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip",
+					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-saleslogix-20_for_754\index-dev-20_for_754.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-saleslogix-20_for_754.html"))
+				});
+			}
+
 			CurrentStep = 0;
 
 			if (ResourceInstallInitializing != null)

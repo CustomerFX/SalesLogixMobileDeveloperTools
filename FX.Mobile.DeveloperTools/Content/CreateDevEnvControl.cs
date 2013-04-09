@@ -36,6 +36,7 @@
 #endregion
 
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using FX.Mobile.DeveloperTools.Managers;
 
@@ -76,6 +77,7 @@ namespace FX.Mobile.DeveloperTools.Content
 
 			var mobileResources = new MobileResourceManager(textProductPath.Text, (option12.Checked ? MobileVersion.Version12 : MobileVersion.Version20));
 			mobileResources.IncludeArgosSample = checkIncludeSample.Checked;
+			mobileResources.IncludeArgos754Compatability = checkIncludeBackCompat.Checked;
 			mobileResources.ResourceInstallInitializing += mobileResources_ResourceInstallInitializing;
 			mobileResources.ResourceInstallProgress += mobileResources_ResourceInstallProgress;
 			mobileResources.ResourceInstallStepUpdate += mobileResources_ResourceInstallStepUpdate;
@@ -148,6 +150,25 @@ namespace FX.Mobile.DeveloperTools.Content
 				{
 					textProductPath.Text = dlg.SelectedPath;
 				}
+			}
+		}
+
+		private void VersionOptionChanged(object sender, EventArgs e)
+		{
+			if (option20.Checked)
+			{
+				checkIncludeBackCompat.Visible = true;
+
+				checkIncludeSample.Location = new Point(211, 150);
+				checkLaunch.Location = new Point(211, 176);
+			}
+			else
+			{
+				checkIncludeBackCompat.Visible = false;
+				checkIncludeBackCompat.Checked = false;
+
+				checkIncludeSample.Location = new Point(211, 124);
+				checkLaunch.Location = new Point(211, 150);
 			}
 		}
 	}

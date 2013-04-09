@@ -91,6 +91,7 @@
 			this.option20.TabStop = true;
 			this.option20.Text = "2.0";
 			this.option20.UseVisualStyleBackColor = true;
+			this.option20.CheckedChanged += new System.EventHandler(this.VersionOptionChanged);
 			// 
 			// option12
 			// 
@@ -102,6 +103,7 @@
 			this.option12.TabIndex = 15;
 			this.option12.Text = "1.2";
 			this.option12.UseVisualStyleBackColor = true;
+			this.option12.CheckedChanged += new System.EventHandler(this.VersionOptionChanged);
 			// 
 			// label1
 			// 
@@ -138,10 +140,10 @@
 			this.buttonCreateDevEnv.FlatAppearance.BorderSize = 0;
 			this.buttonCreateDevEnv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonCreateDevEnv.ForeColor = System.Drawing.Color.White;
-			this.buttonCreateDevEnv.Location = new System.Drawing.Point(211, 202);
+			this.buttonCreateDevEnv.Location = new System.Drawing.Point(211, 223);
 			this.buttonCreateDevEnv.Name = "buttonCreateDevEnv";
 			this.buttonCreateDevEnv.Size = new System.Drawing.Size(193, 36);
-			this.buttonCreateDevEnv.TabIndex = 23;
+			this.buttonCreateDevEnv.TabIndex = 25;
 			this.buttonCreateDevEnv.Text = "Create Dev Environment";
 			this.buttonCreateDevEnv.UseVisualStyleBackColor = false;
 			this.buttonCreateDevEnv.Click += new System.EventHandler(this.buttonCreateDevEnv_Click);
@@ -150,10 +152,10 @@
 			// 
 			this.checkIncludeSample.AutoSize = true;
 			this.checkIncludeSample.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.checkIncludeSample.Location = new System.Drawing.Point(211, 128);
+			this.checkIncludeSample.Location = new System.Drawing.Point(211, 150);
 			this.checkIncludeSample.Name = "checkIncludeSample";
 			this.checkIncludeSample.Size = new System.Drawing.Size(168, 17);
-			this.checkIncludeSample.TabIndex = 26;
+			this.checkIncludeSample.TabIndex = 23;
 			this.checkIncludeSample.Text = "Include argos-sample product?";
 			this.checkIncludeSample.UseVisualStyleBackColor = true;
 			// 
@@ -172,10 +174,10 @@
 			// 
 			this.checkLaunch.AutoSize = true;
 			this.checkLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.checkLaunch.Location = new System.Drawing.Point(211, 161);
+			this.checkLaunch.Location = new System.Drawing.Point(211, 176);
 			this.checkLaunch.Name = "checkLaunch";
 			this.checkLaunch.Size = new System.Drawing.Size(238, 17);
-			this.checkLaunch.TabIndex = 28;
+			this.checkLaunch.TabIndex = 24;
 			this.checkLaunch.Text = "Launch website after environment is created?";
 			this.checkLaunch.UseVisualStyleBackColor = true;
 			// 
@@ -183,10 +185,10 @@
 			// 
 			this.checkIncludeBackCompat.AutoSize = true;
 			this.checkIncludeBackCompat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.checkIncludeBackCompat.Location = new System.Drawing.Point(85, 151);
+			this.checkIncludeBackCompat.Location = new System.Drawing.Point(211, 124);
 			this.checkIncludeBackCompat.Name = "checkIncludeBackCompat";
 			this.checkIncludeBackCompat.Size = new System.Drawing.Size(215, 17);
-			this.checkIncludeBackCompat.TabIndex = 29;
+			this.checkIncludeBackCompat.TabIndex = 22;
 			this.checkIncludeBackCompat.Text = "Include backwards compatibility for 7.5.4";
 			this.checkIncludeBackCompat.UseVisualStyleBackColor = true;
 			// 

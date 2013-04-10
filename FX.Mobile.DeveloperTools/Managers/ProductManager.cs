@@ -38,6 +38,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using FX.Mobile.DeveloperTools.Model;
 
 namespace FX.Mobile.DeveloperTools.Managers
@@ -134,8 +135,32 @@ namespace FX.Mobile.DeveloperTools.Managers
 				}
 			}
 
+			Program.Path = MobilePath;
+			CreateIndexFile();
+
 			if (ProductCreateComplete != null)
 				ProductCreateComplete(this, new ProductCreateEventArgs { Count = count, CurrentFile = string.Empty, Total = total });
+		}
+
+		private void CreateIndexFile()
+		{
+			var indexManager = new IndexFileManager();
+
+			var deployment = new DeploymentManager(MobilePath);
+			var productList = deployment.Products;
+			productList.Reverse();
+
+			var products = new List<string>();
+
+			if (productList.Contains("argos-saleslogix"))
+				products.Add("argos-saleslogix");
+
+			products.AddRange(productList.Where(prod => prod != "argos-saleslogix").ToList());
+
+			foreach (string product in products)
+				indexManager.Packages.Add(new ResourcePackage {Repository = product});
+
+			indexManager.CreateIndex(MobilePath);
 		}
 
 		private string GetTemplateVersion()

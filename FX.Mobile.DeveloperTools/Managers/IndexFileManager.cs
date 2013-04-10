@@ -61,7 +61,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				itemText += templateManager.GetTemplate(IndexItemFileResource, replacements);
 			}
 
-			return itemText + "\r\n<!--$PRODUCTLIST$-->";
+			return itemText;
 		}
 	}
 }

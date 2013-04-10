@@ -65,6 +65,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 		public bool IncludeArgos754Compatability { get; set; }
 
 		private Queue<ResourcePackage> _packages;
+		private List<ResourcePackage> _completedPackageList;
 
 		private ResourcePackage CurrentPackage { get; set; }
 		private int CurrentStep { get; set; }
@@ -126,7 +127,8 @@ namespace FX.Mobile.DeveloperTools.Managers
 				});
 			}
 
-			CurrentStep = 0;
+			CurrentStep = 1;
+			_completedPackageList = new List<ResourcePackage>();
 
 			if (ResourceInstallInitializing != null)
 				ResourceInstallInitializing(this, new MobileResourceInstallEventArgs { Action = "Initializing downloads", StepNumber = CurrentStep, StepTotal = (_packages.Count * 2) });
@@ -137,6 +139,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 		private void InstallPackage(ResourcePackage package)
 		{
 			CurrentPackage = package;
+			_completedPackageList.Add(package);
 
 			if (ResourceInstallStepUpdate != null)
 				ResourceInstallStepUpdate(this, new MobileResourceInstallEventArgs { StepNumber = CurrentStep++ });
@@ -172,6 +175,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 			{
 				CreateReadme();
 				CreateStartShortcut();
+				CreateIndex();
 
 				if (ResourceInstallComplete != null)
 					ResourceInstallComplete(this, new MobileResourceInstallEventArgs());
@@ -234,6 +238,13 @@ namespace FX.Mobile.DeveloperTools.Managers
 				link.Arguments = "\"/path:" + MobilePath + "\"";
 				link.Save(Path.Combine(MobilePath, link.Description + ".lnk"));
 			}
+		}
+
+		private void CreateIndex()
+		{
+			var indexManager = new IndexFileManager();
+			indexManager.Packages = _completedPackageList;
+			indexManager.CreateIndex(MobilePath);
 		}
 
 		private string GetResourceVersion()

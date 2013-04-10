@@ -131,6 +131,7 @@
     <Compile Include="Extensions\ControlExtension.cs" />
     <Compile Include="Managers\DeploymentManager.cs" />
     <Compile Include="Managers\IISExpressManager.cs" />
+    <Compile Include="Managers\IndexFileManager.cs" />
     <Compile Include="Managers\LaunchManager.cs" />
     <Compile Include="Managers\ManagerEnums.cs" />
     <Compile Include="Managers\MobileResourceManager.cs" />
@@ -169,6 +170,8 @@
     <Compile Include="Utility\Machine.cs" />
     <Compile Include="Utility\Notifications.cs" />
     <Compile Include="Utility\ShellLink.cs" />
+    <EmbeddedResource Include="Templates\index-item.html" />
+    <EmbeddedResource Include="Templates\index.html" />
     <EmbeddedResource Include="Content\StartMobileWebsiteControl.resx">
       <DependentUpon>StartMobileWebsiteControl.cs</DependentUpon>
     </EmbeddedResource>

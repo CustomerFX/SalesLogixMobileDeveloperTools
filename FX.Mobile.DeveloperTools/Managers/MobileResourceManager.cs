@@ -79,7 +79,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				Name = "argos-sdk " + GetResourceVersion(),
 				File = "argos-sdk-" + GetResourceVersion() + ".zip",
 				Path = Path.Combine(MobilePath, "argos-sdk"),
-				Account = "Sage",
+				Account = "Saleslogix",
 				Repository = "argos-sdk",
 				Archive = GetResourceVersion() + ".zip",
 				PostAction = () =>
@@ -94,7 +94,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				Name = "argos-saleslogix " + GetResourceVersion(),
 				File = "argos-saleslogix-" + GetResourceVersion() + ".zip",
 				Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix"),
-				Account = "SageSalesLogix",
+				Account = "Saleslogix",
 				Repository = "argos-saleslogix",
 				Archive = GetResourceVersion() + ".zip",
 			});
@@ -106,7 +106,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 					Name = "argos-sample " + GetResourceVersion(),
 					File = Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
 					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-sample"),
-					Account = "SageSalesLogix",
+					Account = "Saleslogix",
 					Repository = "argos-sample",
 					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip",
 					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-sample\index-dev-sample.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-sample.html"))
@@ -120,7 +120,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 					Name = "argos-saleslogix-20_for_754 " + GetResourceVersion(),
 					File = Path.Combine(MobilePath, "argos-saleslogix-20_for_754-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
 					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix-20_for_754"),
-					Account = "SageSalesLogix",
+					Account = "Saleslogix",
 					Repository = "argos-saleslogix-20_for_754",
 					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip",
 					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-saleslogix-20_for_754\index-dev-20_for_754.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-saleslogix-20_for_754.html"))

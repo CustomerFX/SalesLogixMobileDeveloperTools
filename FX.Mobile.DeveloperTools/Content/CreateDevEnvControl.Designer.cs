@@ -42,6 +42,7 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.checkLaunch = new System.Windows.Forms.CheckBox();
 			this.checkIncludeBackCompat = new System.Windows.Forms.CheckBox();
+			this.option30 = new System.Windows.Forms.RadioButton();
 			this.SuspendLayout();
 			// 
 			// buttonBrowse
@@ -82,13 +83,11 @@
 			// option20
 			// 
 			this.option20.AutoSize = true;
-			this.option20.Checked = true;
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option20.Location = new System.Drawing.Point(266, 46);
 			this.option20.Name = "option20";
 			this.option20.Size = new System.Drawing.Size(39, 17);
 			this.option20.TabIndex = 16;
-			this.option20.TabStop = true;
 			this.option20.Text = "2.0";
 			this.option20.UseVisualStyleBackColor = true;
 			this.option20.CheckedChanged += new System.EventHandler(this.VersionOptionChanged);
@@ -192,10 +191,23 @@
 			this.checkIncludeBackCompat.Text = "Include backwards compatibility for 7.5.4";
 			this.checkIncludeBackCompat.UseVisualStyleBackColor = true;
 			// 
+			// option30
+			// 
+			this.option30.AutoSize = true;
+			this.option30.Checked = true;
+			this.option30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.option30.Location = new System.Drawing.Point(320, 46);
+			this.option30.Name = "option30";
+			this.option30.Size = new System.Drawing.Size(39, 17);
+			this.option30.TabIndex = 28;
+			this.option30.Text = "3.0";
+			this.option30.UseVisualStyleBackColor = true;
+			// 
 			// CreateDevEnvControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.option30);
 			this.Controls.Add(this.checkIncludeBackCompat);
 			this.Controls.Add(this.checkLaunch);
 			this.Controls.Add(this.label5);
@@ -223,6 +235,7 @@
 			this.Controls.SetChildIndex(this.label5, 0);
 			this.Controls.SetChildIndex(this.checkLaunch, 0);
 			this.Controls.SetChildIndex(this.checkIncludeBackCompat, 0);
+			this.Controls.SetChildIndex(this.option30, 0);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -243,5 +256,6 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.CheckBox checkLaunch;
 		private System.Windows.Forms.CheckBox checkIncludeBackCompat;
+		private System.Windows.Forms.RadioButton option30;
 	}
 }

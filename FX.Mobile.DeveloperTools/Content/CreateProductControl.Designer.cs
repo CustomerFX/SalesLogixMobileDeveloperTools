@@ -77,10 +77,10 @@
 			this.option20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option20.Location = new System.Drawing.Point(266, 46);
 			this.option20.Name = "option20";
-			this.option20.Size = new System.Drawing.Size(39, 17);
+			this.option20.Size = new System.Drawing.Size(98, 17);
 			this.option20.TabIndex = 2;
 			this.option20.TabStop = true;
-			this.option20.Text = "2.0";
+			this.option20.Text = "2.0 (and higher)";
 			this.option20.UseVisualStyleBackColor = true;
 			// 
 			// buttonCreateProduct

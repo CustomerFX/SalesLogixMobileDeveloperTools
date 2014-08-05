@@ -53,7 +53,7 @@ namespace FX.Mobile.DeveloperTools.Controls
 
 		private void buttonBack_Click(object sender, EventArgs e)
 		{
-			var t = new Transition(new TransitionType_EaseInEaseOut(700));
+			var t = new Transition(new TransitionType_EaseInEaseOut(400));
 			t.TransitionCompletedEvent += HideTransitionCompletedEvent;
 			t.add(this, "Left", FindForm().Width);
 			t.add(this, "BackColor", Color.Silver);
@@ -83,7 +83,7 @@ namespace FX.Mobile.DeveloperTools.Controls
 			this.BackColor = Color.Silver;
 			this.BringToFront();
 
-			var t = new Transition(new TransitionType_EaseInEaseOut(700));
+			var t = new Transition(new TransitionType_EaseInEaseOut(400));
 			t.TransitionCompletedEvent += ShowTransitionCompletedEvent;
 			t.add(this, "Left", 15);
 			t.add(this, "BackColor", Color.White);

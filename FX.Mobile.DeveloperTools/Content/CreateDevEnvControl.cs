@@ -55,8 +55,11 @@ namespace FX.Mobile.DeveloperTools.Content
 					textProductPath.Text = Program.CurrentDevSite;
 					option12.Checked = (Program.CurrentDevMobileVersion == MobileVersion.Version12);
 					option20.Checked = (Program.CurrentDevMobileVersion == MobileVersion.Version20);
+					option30.Checked = (Program.CurrentDevMobileVersion == MobileVersion.Version30);
 				}
 			};
+
+			VersionOptionChanged(null, EventArgs.Empty);
 		}
 
 		private void buttonCreateDevEnv_Click(object sender, EventArgs e)
@@ -75,7 +78,11 @@ namespace FX.Mobile.DeveloperTools.Content
 			progressBar1.Visible = true;
 			buttonCreateDevEnv.Enabled = false;
 
-			var mobileResources = new MobileResourceManager(textProductPath.Text, (option12.Checked ? MobileVersion.Version12 : MobileVersion.Version20));
+			var version = MobileVersion.Version30;
+			if (option12.Checked) version = MobileVersion.Version12;
+			if (option20.Checked) version = MobileVersion.Version20;
+
+			var mobileResources = new MobileResourceManager(textProductPath.Text, version);
 			mobileResources.IncludeArgosSample = checkIncludeSample.Checked;
 			mobileResources.IncludeArgos754Compatability = checkIncludeBackCompat.Checked;
 			mobileResources.ResourceInstallInitializing += mobileResources_ResourceInstallInitializing;
@@ -85,7 +92,7 @@ namespace FX.Mobile.DeveloperTools.Content
 			mobileResources.Install();
 
 			Program.CurrentDevSite = textProductPath.Text;
-			Program.CurrentDevMobileVersion = (option12.Checked ? MobileVersion.Version12 : MobileVersion.Version20);
+			Program.CurrentDevMobileVersion = version;
 		}
 
 		private void mobileResources_ResourceInstallInitializing(object sender, MobileResourceInstallEventArgs e)
@@ -99,19 +106,24 @@ namespace FX.Mobile.DeveloperTools.Content
 
 		private void mobileResources_ResourceInstallProgress(object sender, MobileResourceInstallEventArgs e)
 		{
-			string status = string.Format("{0} {1}", e.Action, e.CurrentPackage).Trim();
-			switch (e.Action)
+			string status = "";
+			try
 			{
-				case "Downloading":
-					status += string.Format(" ({0}% complete)", e.ProgressPercentage);
-					break;
-				case "Extracting":
-					status += string.Format(" ({0} of {1} files complete)", e.ProgressCurrentFile, e.ProgressTotalFiles);
-					break;
+				status = string.Format("{0} {1}", e.Action, e.CurrentPackage).Trim();
+				switch (e.Action)
+				{
+					case "Downloading":
+						status += string.Format(" ({0}% complete)", e.ProgressPercentage);
+						break;
+					case "Extracting":
+						status += string.Format(" ({0} of {1} files complete)", e.ProgressCurrentFile, e.ProgressTotalFiles);
+						Application.DoEvents();
+						break;
+				}
 			}
+			catch {}
 
 			labelStatus.Text = status;
-			Application.DoEvents();
 		}
 
 		private void mobileResources_ResourceInstallStepUpdate(object sender, MobileResourceInstallEventArgs e)

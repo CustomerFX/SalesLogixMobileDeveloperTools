@@ -108,7 +108,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-sample"),
 					Account = "Saleslogix",
 					Repository = "argos-sample",
-					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip",
+					Archive = (GetResourceVersion() == "2.0" ? "master" : "v" + GetResourceVersion()) + ".zip",
 					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-sample\index-dev-sample.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-sample.html"))
 				});
 			}
@@ -256,7 +256,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				case MobileVersion.Version20:
 					return "2.0";
 				default:
-					return "1.2";
+					return "3.0";
 			}
 		}
 	}

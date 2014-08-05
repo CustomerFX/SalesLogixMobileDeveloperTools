@@ -8,6 +8,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 	public enum MobileVersion
 	{
 		Version12,
-		Version20
+		Version20,
+		Version30
 	}
 }

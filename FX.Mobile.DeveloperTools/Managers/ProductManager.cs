@@ -172,7 +172,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				case MobileVersion.Version20:
 					return "Mobile2_0";
 				default:
-					return "Mobile1_2";
+					return "Mobile2_0";
 			}
 		}
 	}

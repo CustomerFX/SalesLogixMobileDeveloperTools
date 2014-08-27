@@ -54,7 +54,7 @@ namespace FX.Mobile.DeveloperTools.Content
 					{
 						textProductPath.Text = Program.CurrentDevSite;
 						option12.Checked = (Program.CurrentDevMobileVersion == MobileVersion.Version12);
-						option20.Checked = (Program.CurrentDevMobileVersion == MobileVersion.Version20);
+						option20.Checked = (Program.CurrentDevMobileVersion != MobileVersion.Version12);
 					}
 				};
 		}

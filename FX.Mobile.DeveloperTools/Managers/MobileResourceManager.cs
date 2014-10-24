@@ -77,7 +77,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 			_packages.Enqueue(new ResourcePackage
 			{
 				Name = "argos-sdk " + GetResourceVersion(),
-				File = "argos-sdk-" + GetResourceVersion() + ".zip",
+				File = "argos-sdk-" + GetResourceVersionBare() + ".zip",
 				Path = Path.Combine(MobilePath, "argos-sdk"),
 				Account = "Saleslogix",
 				Repository = "argos-sdk",
@@ -92,11 +92,11 @@ namespace FX.Mobile.DeveloperTools.Managers
 			_packages.Enqueue(new ResourcePackage
 			{
 				Name = "argos-saleslogix " + GetResourceVersion(),
-				File = "argos-saleslogix-" + GetResourceVersion() + ".zip",
+				File = "argos-saleslogix-" + GetResourceVersionBare() + "-gold.zip",
 				Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix"),
 				Account = "Saleslogix",
 				Repository = "argos-saleslogix",
-				Archive = GetResourceVersion() + ".zip",
+				Archive = GetResourceVersion() + "-gold.zip",
 			});
 
 			if (IncludeArgosSample)
@@ -104,11 +104,11 @@ namespace FX.Mobile.DeveloperTools.Managers
 				_packages.Enqueue(new ResourcePackage
 				{
 					Name = "argos-sample " + GetResourceVersion(),
-					File = Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
+					File = Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersionBare() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
 					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-sample"),
 					Account = "Saleslogix",
 					Repository = "argos-sample",
-					Archive = (GetResourceVersion() == "2.0" ? "master" : "v" + GetResourceVersion()) + ".zip",
+					Archive = (GetResourceVersion() == "2.0" ? "master" : "v" + GetResourceVersion()) + ".zip", // TODO: Create tags on argos-sample to match the right versions (same as SDK)
 					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-sample\index-dev-sample.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-sample.html"))
 				});
 			}
@@ -118,11 +118,11 @@ namespace FX.Mobile.DeveloperTools.Managers
 				_packages.Enqueue(new ResourcePackage
 				{
 					Name = "argos-saleslogix-20_for_754 " + GetResourceVersion(),
-					File = Path.Combine(MobilePath, "argos-saleslogix-20_for_754-" + (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
+					File = Path.Combine(MobilePath, "argos-saleslogix-20_for_754-" + (GetResourceVersionBare() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
 					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix-20_for_754"),
 					Account = "Saleslogix",
-					Repository = "argos-saleslogix-20_for_754",
-					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip",
+					Repository = "argos-saleslogix-754",
+					Archive = (GetResourceVersion() == "2.0" ? "master" : GetResourceVersion()) + ".zip", // TODO: Create tags on argos-saleslogix-754 to match the right version (same as SDK)
 					PostAction = () => File.Move(Path.Combine(MobilePath, @"products\argos-saleslogix-20_for_754\index-dev-20_for_754.html"), Path.Combine(MobilePath, @"products\argos-saleslogix\index-dev-saleslogix-20_for_754.html"))
 				});
 			}
@@ -252,12 +252,24 @@ namespace FX.Mobile.DeveloperTools.Managers
 			switch (this.Version)
 			{
 				case MobileVersion.Version12:
-					return "1.2";
+					return "v1.2";
 				case MobileVersion.Version20:
-					return "2.0";
+					return "v2.0";
+				case MobileVersion.Version30:
+					return "v3.0";
+				case MobileVersion.Version31:
+					return "v3.1";
 				default:
-					return "3.0";
+					return "v3.0";
 			}
+		}
+
+		private string GetResourceVersionBare()
+		{
+			// Strips out the v:
+			//  For some reason when you download a tag of "v3.1" from github, it strips out the v and the resulting download is 3.1.zip
+			string version = this.GetResourceVersion().Replace("v", "");
+			return version;
 		}
 	}
 

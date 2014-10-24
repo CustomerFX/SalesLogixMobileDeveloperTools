@@ -43,6 +43,7 @@
 			this.checkLaunch = new System.Windows.Forms.CheckBox();
 			this.checkIncludeBackCompat = new System.Windows.Forms.CheckBox();
 			this.option30 = new System.Windows.Forms.RadioButton();
+			this.option31 = new System.Windows.Forms.RadioButton();
 			this.SuspendLayout();
 			// 
 			// buttonBrowse
@@ -61,8 +62,8 @@
 			// 
 			// textProductPath
 			// 
-			this.textProductPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textProductPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.textProductPath.BackColor = System.Drawing.SystemColors.Window;
 			this.textProductPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.textProductPath.Location = new System.Drawing.Point(211, 89);
@@ -125,8 +126,8 @@
 			// 
 			// progressBar1
 			// 
-			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.progressBar1.Location = new System.Drawing.Point(59, 298);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.Size = new System.Drawing.Size(482, 29);
@@ -194,7 +195,6 @@
 			// option30
 			// 
 			this.option30.AutoSize = true;
-			this.option30.Checked = true;
 			this.option30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.option30.Location = new System.Drawing.Point(320, 46);
 			this.option30.Name = "option30";
@@ -203,10 +203,24 @@
 			this.option30.Text = "3.0";
 			this.option30.UseVisualStyleBackColor = true;
 			// 
+			// option31
+			// 
+			this.option31.AutoSize = true;
+			this.option31.Checked = true;
+			this.option31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.option31.Location = new System.Drawing.Point(365, 46);
+			this.option31.Name = "option31";
+			this.option31.Size = new System.Drawing.Size(39, 17);
+			this.option31.TabIndex = 29;
+			this.option31.TabStop = true;
+			this.option31.Text = "3.1";
+			this.option31.UseVisualStyleBackColor = true;
+			// 
 			// CreateDevEnvControl
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.option31);
 			this.Controls.Add(this.option30);
 			this.Controls.Add(this.checkIncludeBackCompat);
 			this.Controls.Add(this.checkLaunch);
@@ -236,6 +250,7 @@
 			this.Controls.SetChildIndex(this.checkLaunch, 0);
 			this.Controls.SetChildIndex(this.checkIncludeBackCompat, 0);
 			this.Controls.SetChildIndex(this.option30, 0);
+			this.Controls.SetChildIndex(this.option31, 0);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -257,5 +272,6 @@
 		private System.Windows.Forms.CheckBox checkLaunch;
 		private System.Windows.Forms.CheckBox checkIncludeBackCompat;
 		private System.Windows.Forms.RadioButton option30;
+		private System.Windows.Forms.RadioButton option31;
 	}
 }

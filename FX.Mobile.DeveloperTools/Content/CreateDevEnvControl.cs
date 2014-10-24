@@ -81,8 +81,8 @@ namespace FX.Mobile.DeveloperTools.Content
 			var version = MobileVersion.Version31;
 			if (option12.Checked) version = MobileVersion.Version12;
 			if (option20.Checked) version = MobileVersion.Version20;
-            if (option30.Checked) version = MobileVersion.Version30;
-            if (option31.Checked) version = MobileVersion.Version31;
+			if (option30.Checked) version = MobileVersion.Version30;
+			if (option31.Checked) version = MobileVersion.Version31;
 
 			var mobileResources = new MobileResourceManager(textProductPath.Text, version);
 			mobileResources.IncludeArgosSample = checkIncludeSample.Checked;

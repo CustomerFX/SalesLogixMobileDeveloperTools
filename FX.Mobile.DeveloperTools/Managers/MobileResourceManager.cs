@@ -77,7 +77,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 			_packages.Enqueue(new ResourcePackage
 			{
 				Name = "argos-sdk " + GetResourceVersion(),
-                File = "argos-sdk-" + GetResourceVersionBare() + ".zip",
+				File = "argos-sdk-" + GetResourceVersionBare() + ".zip",
 				Path = Path.Combine(MobilePath, "argos-sdk"),
 				Account = "Saleslogix",
 				Repository = "argos-sdk",
@@ -92,7 +92,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 			_packages.Enqueue(new ResourcePackage
 			{
 				Name = "argos-saleslogix " + GetResourceVersion(),
-                File = "argos-saleslogix-" + GetResourceVersionBare() + "-gold.zip",
+				File = "argos-saleslogix-" + GetResourceVersionBare() + "-gold.zip",
 				Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix"),
 				Account = "Saleslogix",
 				Repository = "argos-saleslogix",
@@ -104,7 +104,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				_packages.Enqueue(new ResourcePackage
 				{
 					Name = "argos-sample " + GetResourceVersion(),
-                    File = Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersionBare() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
+					File = Path.Combine(MobilePath, "argos-sample-" + (GetResourceVersionBare() == "2.0" ? "master" : GetResourceVersion()) + ".zip"),
 					Path = Path.Combine(Path.Combine(MobilePath, "products"), "argos-sample"),
 					Account = "Saleslogix",
 					Repository = "argos-sample",
@@ -255,22 +255,22 @@ namespace FX.Mobile.DeveloperTools.Managers
 					return "v1.2";
 				case MobileVersion.Version20:
 					return "v2.0";
-                case MobileVersion.Version30:
-                    return "v3.0";
-                case MobileVersion.Version31:
-                    return "v3.1";
+				case MobileVersion.Version30:
+					return "v3.0";
+				case MobileVersion.Version31:
+					return "v3.1";
 				default:
 					return "v3.0";
 			}
 		}
 
-        private string GetResourceVersionBare()
-        {
-            // Strips out the v:
-            //  For some reason when you download a tag of "v3.1" from github, it strips out the v and the resulting download is 3.1.zip
-            string version = this.GetResourceVersion().Replace("v", "");
-            return version;
-        }
+		private string GetResourceVersionBare()
+		{
+			// Strips out the v:
+			//  For some reason when you download a tag of "v3.1" from github, it strips out the v and the resulting download is 3.1.zip
+			string version = this.GetResourceVersion().Replace("v", "");
+			return version;
+		}
 	}
 
 	public class MobileResourceInstallEventArgs : EventArgs

@@ -185,7 +185,7 @@
             this.ShowIcon = true;
             this.ShowMinimize = true;
             this.ShowTitle = true;
-            this.Text = "SalesLogix Mobile Developer Toolkit";
+            this.Text = "Infor CRM Mobile Developer Toolkit";
             this.Controls.SetChildIndex(this.createProductControl1, 0);
             this.Controls.SetChildIndex(this.createDevEnvControl1, 0);
             this.Controls.SetChildIndex(this.actionCreateProduct, 0);

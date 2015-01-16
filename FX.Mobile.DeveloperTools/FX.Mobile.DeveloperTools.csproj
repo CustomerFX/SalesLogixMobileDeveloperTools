@@ -24,12 +24,12 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://www.cfxconnect.com/applications/SalesLogixMobileDeveloperTools/</InstallUrl>
     <SupportUrl>http://customerfx.com</SupportUrl>
-    <ProductName>SalesLogix Mobile Developer Toolkit</ProductName>
+    <ProductName>Infor CRM Mobile Developer Toolkit</ProductName>
     <PublisherName>Customer FX Corporation</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>47</ApplicationRevision>
-    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.4.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -58,10 +58,10 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C469D9E907B1D3850C34F10EA4779F834761D1DE</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>657BE052B1E7260F5AA247872D5BA0585BF1ABCC</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>FX.Mobile.DeveloperTools_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>FX.Mobile.DeveloperTools_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -71,6 +71,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>FX.Mobile.DeveloperTools.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IISExpress.Automation">
@@ -220,7 +227,7 @@
     <Content Include="Deployment\FX.Mobile.DeveloperTools.Launcher.exe.bak">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="FX.Mobile.DeveloperTools_TemporaryKey.pfx" />
+    <None Include="FX.Mobile.DeveloperTools_1_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

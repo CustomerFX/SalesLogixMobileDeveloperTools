@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FX.Mobile.DeveloperTools")]
-[assembly: AssemblyDescription("Tools for working with SalesLogix Mobile")]
+[assembly: AssemblyDescription("Tools for working with Infor CRM Mobile")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Customer FX Corporation")]
 [assembly: AssemblyProduct("FX.Mobile.DeveloperTools")]
-[assembly: AssemblyCopyright("Copyright © Customer FX Corporation 2012")]
+[assembly: AssemblyCopyright("Copyright © Customer FX Corporation 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

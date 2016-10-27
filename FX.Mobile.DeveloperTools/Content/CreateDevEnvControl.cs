@@ -78,11 +78,15 @@ namespace FX.Mobile.DeveloperTools.Content
 			progressBar1.Visible = true;
 			buttonCreateDevEnv.Enabled = false;
 
-			var version = MobileVersion.Version31;
+			var version = MobileVersion.Version35;
 			if (option12.Checked) version = MobileVersion.Version12;
 			if (option20.Checked) version = MobileVersion.Version20;
 			if (option30.Checked) version = MobileVersion.Version30;
 			if (option31.Checked) version = MobileVersion.Version31;
+			if (option32.Checked) version = MobileVersion.Version32;
+			if (option33.Checked) version = MobileVersion.Version33;
+			if (option34.Checked) version = MobileVersion.Version34;
+			if (option35.Checked) version = MobileVersion.Version35;
 
 			var mobileResources = new MobileResourceManager(textProductPath.Text, version);
 			mobileResources.IncludeArgosSample = checkIncludeSample.Checked;

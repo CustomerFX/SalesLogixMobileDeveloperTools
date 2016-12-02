@@ -37,6 +37,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using Ionic.Zip;
@@ -86,6 +87,9 @@ namespace FX.Mobile.DeveloperTools.Managers
 				{
 					if (!Directory.Exists(Path.Combine(MobilePath, "products")))
 						Directory.CreateDirectory(Path.Combine(MobilePath, "products"));
+
+					Action postAction = GetResourcePostAction(Path.Combine(MobilePath, "argos-sdk"));
+					postAction.Invoke();
 				}
 			});
 
@@ -97,6 +101,7 @@ namespace FX.Mobile.DeveloperTools.Managers
 				Account = "Saleslogix",
 				Repository = "argos-saleslogix",
 				Archive = GetResourceVersion() + "-gold.zip",
+				PostAction = GetResourcePostAction(Path.Combine(Path.Combine(MobilePath, "products"), "argos-saleslogix"))
 			});
 
 			if (IncludeArgosSample)
@@ -254,13 +259,68 @@ namespace FX.Mobile.DeveloperTools.Managers
 				case MobileVersion.Version12:
 					return "v1.2";
 				case MobileVersion.Version20:
-					return "v2.0";
+					return "v2.0.1";
 				case MobileVersion.Version30:
-					return "v3.0";
+					return "v3.0.4";
 				case MobileVersion.Version31:
-					return "v3.1";
+					return "v3.1.1";
+				case MobileVersion.Version32:
+					return "v3.2.1";
+				case MobileVersion.Version33:
+					return "v3.3.2";
+				case MobileVersion.Version34:
+					return "v3.4.2";
+				case MobileVersion.Version35:
+					return "v3.5";
 				default:
-					return "v3.0";
+					return "v3.5";
+			}
+		}
+
+		private Action GetResourcePostAction(string projectDir)
+		{
+			// Mobile 3.4 and 3.5 require transpiling src into src-out. Requirements are node/npm and grunt-cli (npm install -g grunt-cli).
+			// Open a command prompt and run "npm" or "grunt" to ensure they are on the PATH. The node installer should do this.
+			Action noop = () => { };
+			switch (this.Version)
+			{
+				case MobileVersion.Version34:
+					return () =>
+					{
+						var startInfo = new ProcessStartInfo
+						{
+							WorkingDirectory = projectDir,
+							FileName = "npm",
+							Arguments = "install"
+						};
+						Process p = Process.Start(startInfo);
+						p.WaitForExit();
+
+						// grunt babel less
+						startInfo.FileName = "grunt";
+						startInfo.Arguments = "babel less";
+						p = Process.Start(startInfo);
+						p.WaitForExit();
+					};
+				case MobileVersion.Version35:
+					return () =>
+					{
+						var startInfo = new ProcessStartInfo
+						{
+							WorkingDirectory = projectDir,
+							FileName = "npm",
+							Arguments = "install"
+						};
+						Process p = Process.Start(startInfo);
+						p.WaitForExit();
+
+						// npm run build
+						startInfo.Arguments = "run build";
+						p = Process.Start(startInfo);
+						p.WaitForExit();
+					};
+				default:
+					return noop;
 			}
 		}
 

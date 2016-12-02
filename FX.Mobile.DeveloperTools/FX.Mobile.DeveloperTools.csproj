@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://ryanfarley.com/CFXConnect/Applications/SalesLogixMobileDeveloperTools/</PublishUrl>
+    <PublishUrl>ftp://ftp.cfxconnect.com/Development/Webroot/CFXConnect/Applications/SalesLogixMobileDeveloperTools/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>

@@ -99,7 +99,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY "$(TargetPath)" "$(SolutionDir)\FX.Mobile.DeveloperTools\Deployment\$(TargetFileName).bak"</PostBuildEvent>
+    <PostBuildEvent>if not exist "$(SolutionDir)\FX.Mobile.DeveloperTools\Deployment" mkdir "$(SolutionDir)\FX.Mobile.DeveloperTools\Deployment"
+copy "$(TargetPath)" "$(SolutionDir)\FX.Mobile.DeveloperTools\Deployment\$(TargetFileName).bak"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

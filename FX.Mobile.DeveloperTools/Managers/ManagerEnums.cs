@@ -10,6 +10,10 @@ namespace FX.Mobile.DeveloperTools.Managers
 		Version12,
 		Version20,
 		Version30,
-		Version31
+		Version31,
+		Version32,
+		Version33,
+		Version34,
+		Version35,
 	}
 }
